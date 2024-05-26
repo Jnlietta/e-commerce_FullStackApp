@@ -7,7 +7,7 @@ import {
   IsEmail,
 } from 'class-validator';
 
-export class CreateOrderDTO {
+export class UpdateOrderDTO {
   @IsNotEmpty()
   @IsString()
   userName: string;
