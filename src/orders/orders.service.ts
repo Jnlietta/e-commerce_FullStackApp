@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { Order } from '@prisma/client';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { Order, Product } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
 
 @Injectable()
@@ -29,6 +29,30 @@ export class OrdersService {
         },
       },
     });
+  }
+
+  public async createOrderProduct(
+    orderId: Order['id'],
+    productId: Product['id'],
+  ): Promise<Order> {
+    try {
+      return await this.prismaService.order.update({
+        where: { id: orderId },
+        data: {
+          products: {
+            create: {
+              product: {
+                connect: { id: productId },
+              },
+            },
+          },
+        },
+      });
+    } catch (error) {
+      if (error.code === 'P2025')
+        throw new BadRequestException("User or order doesn't exist");
+      throw error;
+    }
   }
 
   public deleteById(id: Order['id']): Promise<Order> {
