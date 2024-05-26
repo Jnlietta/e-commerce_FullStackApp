@@ -24,7 +24,7 @@ model Product {
   category String
   img String
 
-  orders Order[]
+  orders OrderProduct[]
 }
 
 model Order {
@@ -36,9 +36,17 @@ model Order {
   priceOnlyProducts Int
   priceTotal Int
 
-  products Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
-  productId String?
+  products OrderProduct[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model OrderProduct {
+  product Product @relation(fields: [productId], references: [id])
+  productId String // relation scalar field (used in the `@relation` attribute above)
+  order Order @relation(fields: [orderId], references: [id])
+  orderId String // relation scalar field (used in the `@relation` attribute above)
+
+  @@id([productId, orderId])
 }
