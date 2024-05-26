@@ -12,3 +12,33 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+model Product {
+  id String @id @default(uuid())
+  name String @unique
+  price Int
+  size String
+  shortDescription String
+  description String
+  category String
+  img String
+
+  orders Order[]
+}
+
+model Order {
+  id String @id @default(uuid())
+  userName String
+  userEmail String
+  userAddress String
+  delivery String
+  priceOnlyProducts Int
+  priceTotal Int
+
+  products Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
