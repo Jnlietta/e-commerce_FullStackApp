@@ -1,10 +1,12 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
   NotFoundException,
   Param,
   ParseUUIDPipe,
+  Post,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 
@@ -22,6 +24,14 @@ export class OrdersController {
     const order = await this.ordersService.getById(id);
     if (!order) throw new NotFoundException('Order not found');
     return order;
+  }
+
+  @Post('/addtocart')
+  createUserOnBooks(
+    @Body('orderId', new ParseUUIDPipe()) orderId: string,
+    @Body('productId', new ParseUUIDPipe()) productId: string,
+  ) {
+    return this.ordersService.createOrderProduct(orderId, productId);
   }
 
   @Delete('/:id')
