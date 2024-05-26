@@ -213,6 +213,11 @@ function getOrderProduct() {
 }
 
 async function seed() {
+  // Delete existing data
+  await db.orderProduct.deleteMany();
+  await db.order.deleteMany();
+  await db.product.deleteMany();
+
   // Seed products
   const products = await Promise.all(
     getProducts().map((product) => {
@@ -237,24 +242,8 @@ async function seed() {
 
     if (order && product) {
       await db.orderProduct.create({
-        data: {
-          order: {
-            connect: { id: order.id },
-          },
-          product: {
-            connect: { id: product.id },
-          },
-        },
+        data: orderProduct,
       });
-
-      // await db.order.update({
-      //   where: { id: order.id },
-      //   data: {
-      //     products: {
-      //       connect: { id: product.id },
-      //     },
-      //   },
-      // });
     }
   }
 }
