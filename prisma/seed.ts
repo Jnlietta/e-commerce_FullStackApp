@@ -236,14 +236,25 @@ async function seed() {
     );
 
     if (order && product) {
-      await db.order.update({
-        where: { id: order.id },
+      await db.orderProduct.create({
         data: {
-          products: {
+          order: {
+            connect: { id: order.id },
+          },
+          product: {
             connect: { id: product.id },
           },
         },
       });
+
+      // await db.order.update({
+      //   where: { id: order.id },
+      //   data: {
+      //     products: {
+      //       connect: { id: product.id },
+      //     },
+      //   },
+      // });
     }
   }
 }

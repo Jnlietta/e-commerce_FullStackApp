@@ -23,8 +23,7 @@ model Product {
   description String
   category String
   img String
-
-  orders OrderProduct[]
+  orders Order[]
 }
 
 model Order {
@@ -35,18 +34,8 @@ model Order {
   delivery String
   priceOnlyProducts Int
   priceTotal Int
-
-  products OrderProduct[]
-
+  products Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-model OrderProduct {
-  product Product @relation(fields: [productId], references: [id])
-  productId String // relation scalar field (used in the `@relation` attribute above)
-  order Order @relation(fields: [orderId], references: [id])
-  orderId String // relation scalar field (used in the `@relation` attribute above)
-
-  @@id([productId, orderId])
 }
