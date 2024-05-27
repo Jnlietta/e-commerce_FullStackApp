@@ -23,6 +23,16 @@ export class OrdersService {
     });
   }
 
+  public async create(orderData: Omit<Order, 'id'>): Promise<Order> {
+    try {
+      return await this.prismaService.order.create({
+        data: orderData,
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   public deleteById(id: Order['id']): Promise<Order> {
     return this.prismaService.order.delete({
       where: { id },
