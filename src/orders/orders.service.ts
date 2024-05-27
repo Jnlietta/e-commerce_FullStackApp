@@ -23,7 +23,9 @@ export class OrdersService {
     });
   }
 
-  public async create(orderData: Omit<Order, 'id'>): Promise<Order> {
+  public async create(
+    orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
+  ): Promise<Order> {
     try {
       return await this.prismaService.order.create({
         data: orderData,

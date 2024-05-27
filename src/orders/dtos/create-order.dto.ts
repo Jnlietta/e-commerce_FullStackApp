@@ -22,7 +22,7 @@ export class CreateOrderDTO {
 
   @ArrayNotEmpty()
   @IsString({ each: true })
-  products: string[];
+  cartProducts: string[];
 
   @IsNotEmpty()
   @IsString()
