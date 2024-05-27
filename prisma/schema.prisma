@@ -24,7 +24,25 @@ model Product {
   category String
   img String
 
-  orders OrderProduct[]
+  cartProducts CartProduct[]
+}
+
+model CartProduct {
+  id String @id @default(uuid())
+  name String
+  price Int
+  size String
+  shortDescription String
+  description String
+  category String
+  img String
+  quantity Int
+
+  product Product @relation(fields: [productId], references: [id])
+  productId String
+
+  order Order @relation(fields: [orderId], references: [id])
+  orderId String
 }
 
 model Order {
@@ -36,17 +54,8 @@ model Order {
   priceOnlyProducts Int
   priceTotal Int
 
-  products OrderProduct[]
-
+  cartProducts CartProduct[]
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-model OrderProduct {
-  product Product @relation(fields: [productId], references: [id])
-  productId String // relation scalar field (used in the `@relation` attribute above)
-  order Order @relation(fields: [orderId], references: [id])
-  orderId String // relation scalar field (used in the `@relation` attribute above)
-
-  @@id([productId, orderId])
 }

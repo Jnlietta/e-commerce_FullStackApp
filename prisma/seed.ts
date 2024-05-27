@@ -115,137 +115,114 @@ function getProducts() {
   ];
 }
 
-function getOrders() {
-  return [
-    {
-      id: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
-      userName: 'John Doe',
-      userEmail: 'john.doe@example.com',
-      userAddress: '123 Main St, Anytown, USA',
-      delivery: 'Standard Shipping',
-      priceOnlyProducts: 13998,
-      priceTotal: 14498,
-      createdAt: '2024-05-26T10:00:00Z',
-      updatedAt: '2024-05-26T10:00:00Z',
-    },
-    {
-      id: 'af7b35b3-9ff3-4995-b9a5-154b0c8c59e8',
-      userName: 'Jane Smith',
-      userEmail: 'jane.smith@example.com',
-      userAddress: '456 Elm St, Othertown, USA',
-      delivery: 'Express Shipping',
-      priceOnlyProducts: 2999,
-      priceTotal: 3499,
-      createdAt: '2024-05-26T12:00:00Z',
-      updatedAt: '2024-05-26T12:00:00Z',
-    },
-    {
-      id: '1dbf9b86-9b10-4990-8287-73fc728db015',
-      userName: 'Alice Johnson',
-      userEmail: 'alice.johnson@example.com',
-      userAddress: '789 Oak St, Anycity, USA',
-      delivery: 'Standard Shipping',
-      priceOnlyProducts: 1999,
-      priceTotal: 2499,
-      createdAt: '2024-05-26T14:00:00Z',
-      updatedAt: '2024-05-26T14:00:00Z',
-    },
-    {
-      id: 'c7029c19-d6a6-47d2-8d15-88d07f13a8d7',
-      userName: 'Bob Brown',
-      userEmail: 'bob.brown@example.com',
-      userAddress: '321 Pine St, Yourtown, USA',
-      delivery: 'Standard Shipping',
-      priceOnlyProducts: 15998,
-      priceTotal: 16498,
-      createdAt: '2024-05-26T16:00:00Z',
-      updatedAt: '2024-05-26T16:00:00Z',
-    },
-    {
-      id: 'ea742b9c-69a4-4f5d-a59e-8e22b7984d52',
-      userName: 'Catherine Green',
-      userEmail: 'catherine.green@example.com',
-      userAddress: '654 Maple St, Mytown, USA',
-      delivery: 'Express Shipping',
-      priceOnlyProducts: 2499,
-      priceTotal: 2999,
-      createdAt: '2024-05-26T18:00:00Z',
-      updatedAt: '2024-05-26T18:00:00Z',
-    },
-  ];
-}
+// function getOrders() {
+//   return [
+//     {
+//       id: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
+//       userName: 'John Doe',
+//       userEmail: 'john.doe@example.com',
+//       userAddress: '123 Main St, Anytown, USA',
+//       delivery: 'Standard Shipping',
+//       priceOnlyProducts: 13998,
+//       priceTotal: 14498,
+//       createdAt: '2024-05-26T10:00:00Z',
+//       updatedAt: '2024-05-26T10:00:00Z',
+//     },
+//     {
+//       id: 'af7b35b3-9ff3-4995-b9a5-154b0c8c59e8',
+//       userName: 'Jane Smith',
+//       userEmail: 'jane.smith@example.com',
+//       userAddress: '456 Elm St, Othertown, USA',
+//       delivery: 'Express Shipping',
+//       priceOnlyProducts: 2999,
+//       priceTotal: 3499,
+//       createdAt: '2024-05-26T12:00:00Z',
+//       updatedAt: '2024-05-26T12:00:00Z',
+//     },
+//     {
+//       id: '1dbf9b86-9b10-4990-8287-73fc728db015',
+//       userName: 'Alice Johnson',
+//       userEmail: 'alice.johnson@example.com',
+//       userAddress: '789 Oak St, Anycity, USA',
+//       delivery: 'Standard Shipping',
+//       priceOnlyProducts: 1999,
+//       priceTotal: 2499,
+//       createdAt: '2024-05-26T14:00:00Z',
+//       updatedAt: '2024-05-26T14:00:00Z',
+//     },
+//     {
+//       id: 'c7029c19-d6a6-47d2-8d15-88d07f13a8d7',
+//       userName: 'Bob Brown',
+//       userEmail: 'bob.brown@example.com',
+//       userAddress: '321 Pine St, Yourtown, USA',
+//       delivery: 'Standard Shipping',
+//       priceOnlyProducts: 15998,
+//       priceTotal: 16498,
+//       createdAt: '2024-05-26T16:00:00Z',
+//       updatedAt: '2024-05-26T16:00:00Z',
+//     },
+//     {
+//       id: 'ea742b9c-69a4-4f5d-a59e-8e22b7984d52',
+//       userName: 'Catherine Green',
+//       userEmail: 'catherine.green@example.com',
+//       userAddress: '654 Maple St, Mytown, USA',
+//       delivery: 'Express Shipping',
+//       priceOnlyProducts: 2499,
+//       priceTotal: 2999,
+//       createdAt: '2024-05-26T18:00:00Z',
+//       updatedAt: '2024-05-26T18:00:00Z',
+//     },
+//   ];
+// }
 
-function getOrderProduct() {
-  return [
-    {
-      orderId: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
-      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
-    },
-    {
-      orderId: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
-      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
-    },
-    {
-      orderId: 'af7b35b3-9ff3-4995-b9a5-154b0c8c59e8',
-      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
-    },
-    {
-      orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
-      productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
-    },
-    {
-      orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
-      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
-    },
-    {
-      orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
-      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
-    },
-    {
-      orderId: 'c7029c19-d6a6-47d2-8d15-88d07f13a8d7',
-      productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
-    },
-    {
-      orderId: 'ea742b9c-69a4-4f5d-a59e-8e22b7984d52',
-      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
-    },
-  ];
-}
+// function getOrderProduct() {
+//   return [
+//     {
+//       orderId: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
+//       productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+//     },
+//     {
+//       orderId: '1ecf60b6-4a6f-4534-a551-51d1e7d435a3',
+//       productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+//     },
+//     {
+//       orderId: 'af7b35b3-9ff3-4995-b9a5-154b0c8c59e8',
+//       productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+//     },
+//     {
+//       orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
+//       productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
+//     },
+//     {
+//       orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
+//       productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+//     },
+//     {
+//       orderId: '1dbf9b86-9b10-4990-8287-73fc728db015',
+//       productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+//     },
+//     {
+//       orderId: 'c7029c19-d6a6-47d2-8d15-88d07f13a8d7',
+//       productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
+//     },
+//     {
+//       orderId: 'ea742b9c-69a4-4f5d-a59e-8e22b7984d52',
+//       productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+//     },
+//   ];
+// }
 
 async function seed() {
   // Delete existing data
-  await db.orderProduct.deleteMany();
   await db.order.deleteMany();
   await db.product.deleteMany();
 
   // Seed products
-  const products = await Promise.all(
+  await Promise.all(
     getProducts().map((product) => {
       return db.product.create({ data: product });
     }),
   );
-
-  // Seed orders
-  const orders = await Promise.all(
-    getOrders().map((order) => {
-      return db.order.create({ data: order });
-    }),
-  );
-
-  // Seed order-product relationships
-  const orderProducts = getOrderProduct();
-  for (const orderProduct of orderProducts) {
-    const order = orders.find((order) => order.id === orderProduct.orderId);
-    const product = products.find(
-      (product) => product.id === orderProduct.productId,
-    );
-
-    if (order && product) {
-      await db.orderProduct.create({
-        data: orderProduct,
-      });
-    }
-  }
 }
 
 seed();
