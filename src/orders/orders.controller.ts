@@ -27,7 +27,7 @@ export class OrdersController {
   }
 
   @Post('/addtocart')
-  createUserOnBooks(
+  createOrderProduct(
     @Body('orderId', new ParseUUIDPipe()) orderId: string,
     @Body('productId', new ParseUUIDPipe()) productId: string,
   ) {
