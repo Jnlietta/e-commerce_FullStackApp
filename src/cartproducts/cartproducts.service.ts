@@ -16,7 +16,7 @@ export class CartproductsService {
     cartProductData: Omit<CartProduct, 'id'>,
   ): Promise<CartProduct> {
     try {
-      const { orderId, productId, ...otherData } = cartProductData;
+      const { orderId, productId } = cartProductData;
 
       const isSameCartProduct = await this.prismaService.cartProduct.findFirst({
         where: { productId: productId },
@@ -35,7 +35,6 @@ export class CartproductsService {
       } else {
         return await this.prismaService.cartProduct.create({
           data: {
-            ...otherData,
             product: {
               connect: { id: productId },
             },
