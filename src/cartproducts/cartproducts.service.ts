@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CartProduct } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
+import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
 
 @Injectable()
 export class CartproductsService {
@@ -12,40 +13,37 @@ export class CartproductsService {
     });
   }
 
-  public async create(
-    cartProductData: Omit<CartProduct, 'id'>,
+  async createCartProduct(
+    cartProductData: Omit<CreateCartProductDto, 'id'>,
   ): Promise<CartProduct> {
-    try {
-      const { orderId, productId } = cartProductData;
+    const { productId } = cartProductData;
 
-      const isSameCartProduct = await this.prismaService.cartProduct.findFirst({
-        where: { productId: productId },
-      });
-
-      const quantityIncreased = isSameCartProduct.quantity + 1;
-
-      // check if product is already in cart if yes increase quantity, else add new product to cart
-      if (isSameCartProduct) {
-        await this.prismaService.cartProduct.update({
-          where: { id: isSameCartProduct.id },
-          data: {
-            quantity: quantityIncreased,
-          },
-        });
-      } else {
-        return await this.prismaService.cartProduct.create({
-          data: {
-            product: {
-              connect: { id: productId },
-            },
-            order: {
-              connect: { id: orderId },
-            },
-          },
-        });
-      }
-    } catch (error) {
-      throw error;
+    // Check if the product exists
+    const product = await this.prismaService.product.findUnique({
+      where: { id: productId },
+    });
+    if (!product) {
+      throw new NotFoundException(`Product with id ${productId} not found`);
     }
+
+    // Check if the product is already in the cart, if yes increase the quantity
+    const existingCartProduct = await this.prismaService.cartProduct.findFirst({
+      where: { productId },
+    });
+
+    if (existingCartProduct) {
+      return this.prismaService.cartProduct.update({
+        where: { id: existingCartProduct.id },
+        data: {
+          quantity: existingCartProduct.quantity + 1,
+        },
+      });
+    }
+
+    return this.prismaService.cartProduct.create({
+      data: {
+        ...cartProductData,
+      },
+    });
   }
 }

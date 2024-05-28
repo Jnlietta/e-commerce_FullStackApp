@@ -1,6 +1,6 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CartproductsService } from './cartproducts.service';
-import { CartProduct } from '@prisma/client';
+import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
 
 @Controller('cartproducts')
 export class CartproductsController {
@@ -11,8 +11,8 @@ export class CartproductsController {
     return this.cartproductsService.getAll();
   }
 
-  @Post('/')
-  create(cartProductData: Omit<CartProduct, 'id'>) {
-    return this.cartproductsService.create(cartProductData);
+  @Post()
+  async createCartProduct(@Body() cartProductData: CreateCartProductDto) {
+    return this.cartproductsService.createCartProduct(cartProductData);
   }
 }
