@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Post, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Req,
+} from '@nestjs/common';
 import { CartproductsService } from './cartproducts.service';
 import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
 import { Request } from 'express';
@@ -20,5 +30,13 @@ export class CartproductsController {
   ) {
     const guestId = req.cookies['guestId'];
     return this.cartproductsService.createCartProduct(cartProductData, guestId);
+  }
+
+  @Delete('/:id')
+  async deleteById(@Param('id', new ParseUUIDPipe()) id: string) {
+    const cartProduct = await this.cartproductsService.getById(id);
+    if (!cartProduct) throw new NotFoundException('Cart product not found');
+
+    return this.cartproductsService.deleteById(id);
   }
 }

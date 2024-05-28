@@ -16,6 +16,12 @@ export class CartproductsService {
     });
   }
 
+  public getById(id: CartProduct['id']): Promise<CartProduct | null> {
+    return this.prismaService.cartProduct.findUnique({
+      where: { id },
+    });
+  }
+
   async createCartProduct(
     cartProductData: Omit<CreateCartProductDto, 'id'>,
     guestId: string,
@@ -49,6 +55,26 @@ export class CartproductsService {
         ...cartProductData,
         guestId: guestId,
       },
+    });
+  }
+
+  async deleteById(id: CartProduct['id']): Promise<CartProduct> {
+    const cartProduct = await this.prismaService.cartProduct.findFirst({
+      where: { id },
+    });
+
+    // Check if the cart product is chosen more then once, if yes decrease the quantity
+    if (cartProduct.quantity > 1) {
+      return this.prismaService.cartProduct.update({
+        where: { id },
+        data: {
+          quantity: cartProduct.quantity - 1,
+        },
+      });
+    }
+
+    return this.prismaService.cartProduct.delete({
+      where: { id },
     });
   }
 }
