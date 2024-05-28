@@ -8,11 +8,12 @@ export class CartproductsController {
   constructor(private cartproductsService: CartproductsService) {}
 
   @Get('/')
-  getAll() {
-    return this.cartproductsService.getAll();
+  getAll(@Req() req: Request) {
+    const guestId = req.cookies['guestId'];
+    return this.cartproductsService.getAll(guestId);
   }
 
-  @Post()
+  @Post('/')
   async createCartProduct(
     @Body() cartProductData: CreateCartProductDto,
     @Req() req: Request,

@@ -7,8 +7,11 @@ import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
 export class CartproductsService {
   constructor(private prismaService: PrismaService) {}
 
-  public getAll(): Promise<CartProduct[]> {
+  public getAll(guestId: string): Promise<CartProduct[]> {
     return this.prismaService.cartProduct.findMany({
+      where: {
+        guestId: guestId,
+      },
       include: { product: true },
     });
   }
