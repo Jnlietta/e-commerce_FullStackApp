@@ -7,9 +7,11 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  Req,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDTO } from './dtos/create-order.dto';
+import { Request } from 'express';
 
 @Controller('orders')
 export class OrdersController {
@@ -28,8 +30,9 @@ export class OrdersController {
   }
 
   @Post('/')
-  create(@Body() orderData: CreateOrderDTO) {
-    return this.ordersService.create(orderData);
+  create(@Body() orderData: CreateOrderDTO, @Req() req: Request) {
+    const guestId = req.cookies['guestId'];
+    return this.ordersService.create(orderData, guestId);
   }
 
   @Delete('/:id')

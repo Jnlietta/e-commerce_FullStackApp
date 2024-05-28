@@ -25,11 +25,23 @@ export class OrdersService {
 
   public async create(
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
+    guestId: string,
   ): Promise<Order> {
     try {
-      return await this.prismaService.order.create({
+      const order = await this.prismaService.order.create({
         data: orderData,
       });
+
+      await this.prismaService.cartProduct.updateMany({
+        data: {
+          orderId: order.id,
+        },
+        where: {
+          guestId: guestId,
+        },
+      });
+
+      return order;
     } catch (error) {
       throw error;
     }
