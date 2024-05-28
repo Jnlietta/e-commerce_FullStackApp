@@ -15,6 +15,7 @@ export class CartproductsService {
 
   async createCartProduct(
     cartProductData: Omit<CreateCartProductDto, 'id'>,
+    guestId: string,
   ): Promise<CartProduct> {
     const { productId } = cartProductData;
 
@@ -28,7 +29,7 @@ export class CartproductsService {
 
     // Check if the product is already in the cart, if yes increase the quantity
     const existingCartProduct = await this.prismaService.cartProduct.findFirst({
-      where: { productId },
+      where: { productId, guestId },
     });
 
     if (existingCartProduct) {
@@ -43,6 +44,7 @@ export class CartproductsService {
     return this.prismaService.cartProduct.create({
       data: {
         ...cartProductData,
+        guestId: guestId,
       },
     });
   }

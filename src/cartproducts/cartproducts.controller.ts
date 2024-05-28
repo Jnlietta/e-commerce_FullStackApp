@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { CartproductsService } from './cartproducts.service';
 import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
+import { Request } from 'express';
 
 @Controller('cartproducts')
 export class CartproductsController {
@@ -12,7 +13,11 @@ export class CartproductsController {
   }
 
   @Post()
-  async createCartProduct(@Body() cartProductData: CreateCartProductDto) {
-    return this.cartproductsService.createCartProduct(cartProductData);
+  async createCartProduct(
+    @Body() cartProductData: CreateCartProductDto,
+    @Req() req: Request,
+  ) {
+    const guestId = req.cookies['guestId'];
+    return this.cartproductsService.createCartProduct(cartProductData, guestId);
   }
 }
