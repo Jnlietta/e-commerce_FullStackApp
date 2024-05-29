@@ -24,7 +24,7 @@ const NavBar = ({ isLoggedIn }) => {
                         <Nav.Link as={NavLink} to="/accessories">Accessories</Nav.Link>
                         <Nav.Link as={NavLink} to="/sales">Sales</Nav.Link>
 
-                        <Nav.Link as={NavLink} to="/" className={styles.cartIcon}>
+                        <Nav.Link as={NavLink} to="/cart" className={styles.cartIcon}>
                             <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                         </Nav.Link>
                     </Nav>
