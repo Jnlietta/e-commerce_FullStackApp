@@ -11,17 +11,19 @@ import Order from './components/pages/Order/Order';
 
 const App = () => {
   return (
-    <Container>
+    <div>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Container>
       <Footer />
-    </Container>
+    </div>
   );
 };
 

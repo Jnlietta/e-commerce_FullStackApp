@@ -1,6 +1,8 @@
+import NavBar from "../NavBar/NavBar";
+
 const Header = props => {
     return(
-        <h1>Header</h1>
+        <NavBar />
     );
 };
 
