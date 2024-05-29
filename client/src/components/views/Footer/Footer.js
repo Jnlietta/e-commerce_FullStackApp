@@ -1,6 +1,8 @@
+import clsx from 'clsx';
+
 const Footer = props => {
     return(
-        <h1>Footer</h1>
+        <p className={clsx('text-center', 'text-muted')}>Copyright © Sway 2024</p>
     );
 };
 
