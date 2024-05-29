@@ -8,8 +8,19 @@
     font-size: 30px !important;
 }
 
+// .navLinks {
+//     display: flex !important;
+// }
 .navbarCollapse {
     font-weight: 700;
     text-align: right !important;
     flex-grow: 0 !important;
+    flex-wrap: nowrap !important;
+}
+
+.cartIcon {
+    padding: 5px 0 !important;
+    padding-left: 1rem !important;
+    color: black !important;
+    font-size: larger;
 }
