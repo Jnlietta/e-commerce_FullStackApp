@@ -1,8 +1,12 @@
 import NavBar from "../NavBar/NavBar";
+import TopBar from "../TopBar/TopBar";
 
 const Header = props => {
     return(
-        <NavBar />
+        <div>
+            <TopBar />
+            <NavBar />
+        </div>
     );
 };
 
