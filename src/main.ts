@@ -9,7 +9,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.setGlobalPrefix('api');
-  app.use('/public', express.static('public'));
+  app.use(express.static('public'));
   await app.enableShutdownHooks();
   await app.listen(3000);
 }
