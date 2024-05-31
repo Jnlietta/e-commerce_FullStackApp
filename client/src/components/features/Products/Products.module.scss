@@ -1,0 +1,51 @@
+@import "../../../styles/settings.scss";
+
+.card {
+    transition: transform 0.3s !important;
+
+    &:hover {
+        transform: scale(1.02) !important;
+    }
+}
+.title {
+    font-family: $font-productName;
+}
+
+.text {        
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+span {
+    &:nth-child(1) {
+        display: block;
+        text-wrap: wrap;
+    }
+
+    & strong{
+        color: $color-text-warning;
+        text-wrap: nowrap;
+    }
+}
+
+.image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.button {
+    background-color: $color-button !important;
+    font-weight: 400 !important;
+    letter-spacing: .04rem !important;
+    border: none !important;
+    border-radius: 0.15rem !important;
+    transition: transform 0.3s !important;
+
+    &:hover {
+        background-color: darken($color-button, 5%) !important;
+        transform: scale(1.1) !important;
+    }
+}
