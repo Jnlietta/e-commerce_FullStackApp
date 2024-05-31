@@ -1,5 +1,6 @@
 import styles from "./Products.module.scss";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+import Button from "../../common/Button/Button";
 import { NavLink } from "react-router-dom";
 import { IMAGES_URL } from '../../../config';
 
@@ -20,7 +21,8 @@ const Products = ({products}) => {
                                 <div className={styles.text}>
                                     <span className="mb-0">from <strong>{product.price} $</strong></span>
 
-                                    <Button variant="primary" as={NavLink} to={"/product/" + product.id} className={styles.button}>Explore</Button>
+                                    <Button path={"/product/" + product.id} buttonName="Explore" />
+                                    {/* <Button variant="primary" as={NavLink} to={"/product/" + product.id} className={styles.button}>Explore</Button> */}
                                 </div>
                                 
                             </Card.Text>

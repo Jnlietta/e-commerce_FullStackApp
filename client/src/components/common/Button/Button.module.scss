@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.button {
+    background-color: $color-button !important;
+    font-weight: 400 !important;
+    letter-spacing: .04rem !important;
+    border: none !important;
+    border-radius: 0.15rem !important;
+    transition: transform 0.3s !important;
+
+    &:hover {
+        background-color: darken($color-button, 5%) !important;
+        transform: scale(1.1) !important;
+    }
+}
