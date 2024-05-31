@@ -13,12 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+  OneSize
+}
 
 model Product {
   id String @id @default(uuid())
   name String @unique
   price Int
-  size String
   shortDescription String
   description String
   category String
@@ -40,6 +48,8 @@ model CartProduct {
   userId String?
   guestId String
   quantity Int @default(1)
+  size Size 
+  comment String?
 
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
