@@ -1,3 +1,5 @@
+@import '../../../styles/settings.scss';
+
 .links {
     text-align: right !important;
     align-items: end !important;
@@ -5,9 +7,9 @@
     padding-left: 1rem !important;
     font-size: 13px;
     text-decoration: none;
-    color: black !important;
+    color: $color-text !important;
 }
 
 .linksLogout {
-    color: red !important;
+    color: $color-text-warning !important;
 }
