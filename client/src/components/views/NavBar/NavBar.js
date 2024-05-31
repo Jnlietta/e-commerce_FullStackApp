@@ -11,7 +11,7 @@ const NavBar = ({ isLoggedIn }) => {
     return(
         <Navbar expand="lg" className={clsx('mb-4', styles['navbar-transparent'])}>
             <Container>
-                <Navbar.Brand href="#home" className={styles.navbarBrand}>SWAY.</Navbar.Brand>
+                <Navbar.Brand href="/" className={styles.navbarBrand}>SWAY.</Navbar.Brand>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
                     <FontAwesomeIcon className={styles.icon} icon={faBars} />
