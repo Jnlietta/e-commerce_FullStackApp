@@ -1,0 +1,20 @@
+@import './settings.scss';
+@import './typography.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $color-text;
+  background: $color-background;
+}
+
+a, a:hover, a:visited {
+  text-decoration: none;
+}
+
+
+
