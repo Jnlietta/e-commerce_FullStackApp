@@ -12,7 +12,7 @@ function getProducts() {
       description:
         'A high-quality cotton t-shirt perfect for summer. Available in various colors and sizes.',
       category: 'Tops',
-      img: 'https://example.com/images/summer-tshirt.jpg',
+      mainImage: 'tshirt/main.jpg',
     },
     {
       id: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
@@ -23,7 +23,7 @@ function getProducts() {
       description:
         'A stylish and warm jacket for the cold winter months. Made from durable materials and designed for comfort.',
       category: 'Outerwear',
-      img: 'https://example.com/images/winter-jacket.jpg',
+      mainImage: 'winterJacket/main.jpg',
     },
     {
       id: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
@@ -34,7 +34,7 @@ function getProducts() {
       description:
         'Classic blue jeans made from high-quality denim. Perfect for casual wear.',
       category: 'Bottoms',
-      img: 'https://example.com/images/denim-jeans.jpg',
+      mainImage: 'denimJeans/main.jpg',
     },
     {
       id: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
@@ -45,7 +45,7 @@ function getProducts() {
       description:
         'Breathable and lightweight sneakers perfect for casual and athletic wear.',
       category: 'Footwear',
-      img: 'https://example.com/images/sneakers.jpg',
+      mainImage: 'sneakers/main.jpg',
     },
     {
       id: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
@@ -56,7 +56,7 @@ function getProducts() {
       description:
         'High-quality leather jacket with a sleek design. Perfect for a stylish look.',
       category: 'Outerwear',
-      img: 'https://example.com/images/leather-jacket.jpg',
+      mainImage: 'leatherJacket/main.jpg',
     },
     {
       id: '92fa4326-c7db-42b6-9b2c-5bb46b63cf4c',
@@ -67,7 +67,7 @@ function getProducts() {
       description:
         'Adjustable baseball cap with a timeless design. Suitable for all casual occasions.',
       category: 'Accessories',
-      img: 'https://example.com/images/baseball-cap.jpg',
+      mainImage: 'baseballCap/main.jpg',
     },
     {
       id: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
@@ -78,7 +78,7 @@ function getProducts() {
       description:
         'Soft and cozy sweatpants, perfect for lounging or workouts.',
       category: 'Bottoms',
-      img: 'https://example.com/images/sweatpants.jpg',
+      mainImage: 'sweatpants/main.jpg',
     },
     {
       id: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
@@ -89,7 +89,7 @@ function getProducts() {
       description:
         'A stylish hoodie with a soft inner lining, ideal for cool weather.',
       category: 'Tops',
-      img: 'https://example.com/images/hoodie.jpg',
+      mainImage: 'hoodie/main.jpg',
     },
     {
       id: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
@@ -99,7 +99,7 @@ function getProducts() {
       shortDescription: 'Stylish sunglasses',
       description: 'UV-protection sunglasses with a modern design.',
       category: 'Accessories',
-      img: 'https://example.com/images/sunglasses.jpg',
+      mainImage: 'sunglasses/main.jpg',
     },
     {
       id: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
@@ -110,7 +110,182 @@ function getProducts() {
       description:
         'Breathable and comfortable shorts, perfect for running and other workouts.',
       category: 'Bottoms',
-      img: 'https://example.com/images/running-shorts.jpg',
+      mainImage: 'shorts/main.jpg',
+    },
+  ];
+}
+
+function getImages() {
+  return [
+    // Images for 'Summer T-Shirt'
+    {
+      url: 'tshirt/1.jpg',
+      productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
+    },
+    {
+      url: 'tshirt/2.jpg',
+      productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
+    },
+    {
+      url: 'tshirt/3.jpg',
+      productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
+    },
+    {
+      url: 'tshirt/4.jpg',
+      productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
+    },
+    // Images for 'Winter Jacket'
+    {
+      url: 'winterJacket/1.jpg',
+      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+    },
+    {
+      url: 'winterJacket/2.jpg',
+      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+    },
+    {
+      url: 'winterJacket/3.jpg',
+      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+    },
+    {
+      url: 'winterJacket/4.jpg',
+      productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
+    },
+    // Images for 'Denim Jeans'
+    {
+      url: 'denimJeans/1.jpg',
+      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+    },
+    {
+      url: 'denimJeans/2.jpg',
+      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+    },
+    {
+      url: 'denimJeans/3.jpg',
+      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+    },
+    {
+      url: 'denimJeans/4.jpg',
+      productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
+    },
+    // Images for 'Sneakers'
+    {
+      url: 'sneakers/1.jpg',
+      productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
+    },
+    {
+      url: 'sneakers/2.jpg',
+      productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
+    },
+    {
+      url: 'sneakers/3.jpg',
+      productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
+    },
+    {
+      url: 'sneakers/4.jpg',
+      productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
+    },
+    // Images for 'Leather Jacket'
+    {
+      url: 'leatherJacket/1.jpg',
+      productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
+    },
+    {
+      url: 'leatherJacket/2.jpg',
+      productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
+    },
+    {
+      url: 'leatherJacket/3.jpg',
+      productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
+    },
+    {
+      url: 'leatherJacket/4.jpg',
+      productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
+    },
+    // Images for 'Baseball Cap'
+    {
+      url: 'baseballCap/1.jpg',
+      productId: '92fa4326-c7db-42b6-9b2c-5bb46b63cf4c',
+    },
+    {
+      url: 'baseballCap/2.jpg',
+      productId: '92fa4326-c7db-42b6-9b2c-5bb46b63cf4c',
+    },
+    {
+      url: 'baseballCap/3.jpg',
+      productId: '92fa4326-c7db-42b6-9b2c-5bb46b63cf4c',
+    },
+    {
+      url: 'baseballCap/4.jpg',
+      productId: '92fa4326-c7db-42b6-9b2c-5bb46b63cf4c',
+    },
+    // Images for 'Sweatpants'
+    {
+      url: 'sweatpants/1.jpg',
+      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+    },
+    {
+      url: 'sweatpants/2.jpg',
+      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+    },
+    {
+      url: 'sweatpants/3.jpg',
+      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+    },
+    {
+      url: 'sweatpants/4.jpg',
+      productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
+    },
+    // Images for 'Hoodie'
+    {
+      url: 'hoodie/1.jpg',
+      productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
+    },
+    {
+      url: 'hoodie/2.jpg',
+      productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
+    },
+    {
+      url: 'hoodie/3.jpg',
+      productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
+    },
+    {
+      url: 'hoodie/4.jpg',
+      productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
+    },
+    // Images for 'Sunglasses'
+    {
+      url: 'sunglasses/1.jpg',
+      productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
+    },
+    {
+      url: 'sunglasses/2.jpg',
+      productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
+    },
+    {
+      url: 'sunglasses/3.jpg',
+      productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
+    },
+    {
+      url: 'sunglasses/4.jpg',
+      productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
+    },
+    // Images for 'Running Shorts'
+    {
+      url: 'shorts/1.jpg',
+      productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
+    },
+    {
+      url: 'shorts/2.jpg',
+      productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
+    },
+    {
+      url: 'shorts/3.jpg',
+      productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
+    },
+    {
+      url: 'shorts/4.jpg',
+      productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
     },
   ];
 }
@@ -216,11 +391,19 @@ async function seed() {
   // Delete existing data
   await db.order.deleteMany();
   await db.product.deleteMany();
+  await db.image.deleteMany();
 
   // Seed products
   await Promise.all(
     getProducts().map((product) => {
       return db.product.create({ data: product });
+    }),
+  );
+
+  // Seed images
+  await Promise.all(
+    getImages().map((image) => {
+      return db.image.create({ data: image });
     }),
   );
 }
