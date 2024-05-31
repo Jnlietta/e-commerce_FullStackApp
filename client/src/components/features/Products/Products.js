@@ -17,10 +17,10 @@ const Products = ({products}) => {
                             <Card.Text>
                                 <span className="mb-0">{product.shortDescription}</span>
                                 <br />
-                                <div className={styles.text}>
+                                <span className={styles.text}>
                                     <span className="mb-0">from <strong>{product.price} $</strong></span>
                                     <Button path={"/product/" + product.id} buttonName="Explore" />
-                                </div>
+                                </span>
                             </Card.Text>
                         </Card.Body>
                     </Card>
