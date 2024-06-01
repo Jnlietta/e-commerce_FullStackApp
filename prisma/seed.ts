@@ -117,7 +117,7 @@ function getImages() {
       productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
     },
     {
-      url: 'uploads/tshirt/3.jpg',
+      url: 'uploads/tshirt-3.jpg',
       productId: 'ae2f8164-1c1e-4b6f-8a87-11e213eace57',
     },
     {
@@ -134,7 +134,7 @@ function getImages() {
       productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
     },
     {
-      url: 'uploads/winterJacket/3.jpg',
+      url: 'uploads/winterJacket-3.jpg',
       productId: 'b5d6c171-0e50-4d95-a5f7-78957f9214d5',
     },
     {
@@ -151,7 +151,7 @@ function getImages() {
       productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
     },
     {
-      url: 'uploads/denimJeans/3.jpg',
+      url: 'uploads/denimJeans-3.jpg',
       productId: 'd55d4d8b-4b23-469e-96be-bf3dfdcf8690',
     },
     {
@@ -168,7 +168,7 @@ function getImages() {
       productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
     },
     {
-      url: 'uploads/sneakers/3.jpg',
+      url: 'uploads/sneakers-3.jpg',
       productId: 'd6ad66c0-2b1a-4ae3-8894-4541e32b1b85',
     },
     {
@@ -185,7 +185,7 @@ function getImages() {
       productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
     },
     {
-      url: 'uploads/leatherJacket/3.jpg',
+      url: 'uploads/leatherJacket-3.jpg',
       productId: '2e718815-b191-43b3-a3b8-3a6e60d8347a',
     },
     {
@@ -219,7 +219,7 @@ function getImages() {
       productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
     },
     {
-      url: 'uploads/sweatpants/3.jpg',
+      url: 'uploads/sweatpants-3.jpg',
       productId: '9d242d3e-4f93-437e-8aeb-95a98a3aab5b',
     },
     {
@@ -236,7 +236,7 @@ function getImages() {
       productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
     },
     {
-      url: 'uploads/hoodie/3.jpg',
+      url: 'uploads/hoodie-3.jpg',
       productId: '60bc81de-1d7f-4e7c-8666-216d80a27e2f',
     },
     {
@@ -253,7 +253,7 @@ function getImages() {
       productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
     },
     {
-      url: 'uploads/sunglasses/3.jpg',
+      url: 'uploads/sunglasses-3.jpg',
       productId: 'd2a94507-16a4-4267-9531-4edb5a9097d2',
     },
     {
@@ -270,7 +270,7 @@ function getImages() {
       productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
     },
     {
-      url: 'uploads/shorts/3.jpg',
+      url: 'uploads/shorts-3.jpg',
       productId: 'f4e0ed33-4d96-4f07-85d2-1f761cc43a2a',
     },
     {
