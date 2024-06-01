@@ -5,6 +5,9 @@ import { API_URL } from '../config';
 export const getProducts = ({ products }) => products.data;
 export const getRequests = ({ products }) => products.requests;
 
+export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
+
+
 /* ACTIONS */
 
 // action name creator
