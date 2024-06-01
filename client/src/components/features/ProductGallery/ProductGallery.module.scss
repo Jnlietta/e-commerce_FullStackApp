@@ -1,0 +1,20 @@
+  
+  .mainImage {
+    width: 100%;
+    max-width: 500px;
+    min-width: 220px;
+  }
+  
+  .galleryImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .galleryImage {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    object-fit: cover;
+  }
