@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CartProduct } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
 import { CreateCartProductDto } from './dtos/create-cartproduct.dto';
+import { UpdateCartProductDto } from './dtos/update-cartproduct.dto';
 
 @Injectable()
 export class CartproductsService {
@@ -23,7 +24,7 @@ export class CartproductsService {
   }
 
   async createCartProduct(
-    cartProductData: Omit<CreateCartProductDto, 'id'>,
+    cartProductData: CreateCartProductDto,
     guestId: string,
   ): Promise<CartProduct> {
     const { productId, ...otherData } = cartProductData;
@@ -59,21 +60,29 @@ export class CartproductsService {
     });
   }
 
-  async deleteById(id: CartProduct['id']): Promise<CartProduct> {
-    const cartProduct = await this.prismaService.cartProduct.findFirst({
-      where: { id },
-    });
+  async updateById(
+    id: CartProduct['id'],
+    cartProductData: UpdateCartProductDto,
+  ): Promise<CartProduct> {
+    const { productId, ...otherData } = cartProductData;
 
-    // Check if the cart product is chosen more then once, if yes decrease the quantity
-    if (cartProduct.quantity > 1) {
-      return this.prismaService.cartProduct.update({
-        where: { id },
-        data: {
-          quantity: cartProduct.quantity - 1,
-        },
-      });
+    // Check if the product exists
+    const product = await this.prismaService.product.findUnique({
+      where: { id: productId },
+    });
+    if (!product) {
+      throw new NotFoundException(`Product with id ${productId} not found`);
     }
 
+    return this.prismaService.cartProduct.update({
+      where: { id },
+      data: {
+        ...otherData,
+      },
+    });
+  }
+
+  async deleteById(id: CartProduct['id']): Promise<CartProduct> {
     return this.prismaService.cartProduct.delete({
       where: { id },
     });
