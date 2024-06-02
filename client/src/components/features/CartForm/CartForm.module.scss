@@ -1,0 +1,47 @@
+@import '../../../styles/settings.scss';
+
+.cartFormContainer {
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    background-color: $color-card;
+    padding: 10px;
+  }
+
+.cartProductName {
+    font-family: $font-productName;
+    margin-bottom: 20px;
+}
+
+.mainImage {
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .trashButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  
+  .icon {
+    color: $color-text-warning;
+    font-size: 1.7rem;
+    transition: transform 0.3s !important;
+
+    &:hover {
+        color: darken($color-text-warning, 5%) !important;
+        transform: scale(1.1) !important;
+    }
+  }
+
+  @media (max-width: 767px) { 
+    .cartProductHeader {
+      text-align: center;
+    }
+  }
+  

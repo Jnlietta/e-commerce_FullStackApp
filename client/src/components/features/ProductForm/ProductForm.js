@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import styles from './ProductForm.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const ProductForm = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState('XS');
+
+  const navigate = useNavigate();
 
   const handleSizeChange = (event) => {
     setSize(event.target.value);
@@ -25,6 +28,7 @@ const ProductForm = ({ product }) => {
     event.preventDefault();
 
     console.log('Product added to cart with quantity: ', quantity, ' and size:', size);
+    navigate('/cart');
   };
 
   return (
@@ -58,10 +62,10 @@ const ProductForm = ({ product }) => {
           <InputGroup>
           
             <Form.Control 
-            type="number" 
-            min="1"  
-            value={quantity}
-            onChange={handleQuantityChange}
+              type="number" 
+              min="1"  
+              value={quantity}
+              onChange={handleQuantityChange}
             />
 
           </InputGroup>
@@ -71,7 +75,6 @@ const ProductForm = ({ product }) => {
       <Button 
         type="submit" 
         onClick={handleSubmit} 
-        path={"/cart"} 
         buttonName="Add to cart" 
         style={{ width: '100%' }} 
       />
