@@ -1,30 +1,50 @@
-.productContainer {
+@import '../../../styles/settings.scss';
+
+.productName {
+  font-family: $font-productName;
+  margin: 0;
+}
+
+.shortDescription {
+  font-size: 14px;
+  color: $color-text-light;
+}
+
+.priceInfo {
+  margin: 20px 0;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 0.6rem;
+  font-style: italic;
+  color: $color-text-light;
+
+  p {
     display: flex;
-    flex-direction: row;
-    padding: 20px;
+    gap: 10px;
+    white-space: nowrap;
+    align-items: flex-end;
   }
-  .productImages {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }  
-  .productInfo {
-    flex: 1;
-    padding: 20px;
+
+  span {
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+    color:  $color-text-warning;
   }
-  
-  .productControls {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+}
+
+.productControls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+
+  .formGroup {
+    width: 100%;
   }
-  
-  .productControls select,
-  .productControls input {
-    margin-right: 10px;
-  }
-  
-  .productDescription {
-    margin-top: 20px;
-  }
+}
+
+
+.productDescription {
+  margin-top: 20px;
+}
