@@ -1,0 +1,38 @@
+@import '../../../styles/settings.scss';
+
+.productName {
+  font-family: $font-productName;
+  margin: 0;
+}
+
+.shortDescription {
+  font-size: 14px;
+  color: $color-text-light;
+}
+
+.priceInfo {
+  margin: 20px 0;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 0.6rem;
+  font-style: italic;
+  color: $color-text-light;
+
+  p {
+    display: flex;
+    gap: 10px;
+    white-space: nowrap;
+    align-items: flex-end;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+    color:  $color-text-warning;
+  }
+}
+
+.productDescription {
+  margin-top: 20px;
+}

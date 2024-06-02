@@ -1,4 +1,4 @@
-import ProductForm from "../../features/ProductForm/ProductForm";
+import ProductInfo from "../../features/ProductInfo/ProductInfo";
 import ProductGallery from "../../features/ProductGallery/ProductGallery";
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -24,7 +24,7 @@ const Product = props => {
           <ProductGallery product={product} />
         </Col>
         <Col md={6} className={styles.productInfo}>
-          <ProductForm product={product} />
+          <ProductInfo product={product} />
         </Col>
       </Row>
     </Container>
