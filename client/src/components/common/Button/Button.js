@@ -1,12 +1,14 @@
 import styles from "./Button.module.scss";
-import { Button } from "react-bootstrap";
+import { Button as BootstrapButton } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 
-const Products = ({ path , buttonName }) => {
+const Button = ({ path , buttonName, style, type, onClick }) => {
     return (
-        <Button variant="primary" as={NavLink} to={path} className={styles.button}>{buttonName}</Button>
+        <BootstrapButton type={type} variant="primary" as={NavLink} to={path} className={styles.button} style={style} onClick={onClick}>
+            {buttonName}
+        </BootstrapButton>
     );
 };
 
-export default Products;
+export default Button;
