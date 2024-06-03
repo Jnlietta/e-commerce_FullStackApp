@@ -20,9 +20,17 @@ import { GuestIdMiddleware } from './shared/middlewares/guest-id.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(GuestIdMiddleware).forRoutes('*');
-    consumer.apply(cors()).forRoutes({
-      path: '*',
-      method: RequestMethod.ALL,
-    });
+
+    consumer
+      .apply(
+        cors({
+          origin: 'http://localhost:3001',
+          credentials: true,
+        }),
+      )
+      .forRoutes({
+        path: '*',
+        method: RequestMethod.ALL,
+      });
   }
 }
