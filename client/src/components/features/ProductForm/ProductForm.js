@@ -3,12 +3,16 @@ import { Form, InputGroup } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import styles from './ProductForm.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCartRequest } from '../../../redux/cartproductsRedux';
+
 
 const ProductForm = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState('XS');
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSizeChange = (event) => {
     setSize(event.target.value);
@@ -26,6 +30,14 @@ const ProductForm = ({ product }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const cartProduct = {
+      productId: product.id,
+      quantity,
+      size,
+    };
+    
+    dispatch(addToCartRequest(cartProduct));
 
     console.log('Product added to cart with quantity: ', quantity, ' and size:', size);
     navigate('/cart');

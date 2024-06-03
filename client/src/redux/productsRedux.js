@@ -35,7 +35,9 @@ export const loadProductsRequest = () => {
     dispatch(startRequest({ name: 'LOAD_PRODUCTS' }));
     try {
 
-      let res = await axios.get(`${API_URL}/products`);
+      let res = await axios.get(`${API_URL}/products`, {
+        withCredentials: true
+      });
       dispatch(loadProducts(res.data));
       dispatch(endRequest({ name: 'LOAD_PRODUCTS' }));
 

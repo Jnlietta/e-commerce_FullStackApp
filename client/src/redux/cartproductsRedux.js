@@ -29,7 +29,9 @@ export const addToCartRequest = (cartProduct) => {
   return async dispatch => {
     dispatch(startRequest({ name: 'ADD_TO_CART' }));
     try {
-      let res = await axios.post(`${API_URL}/cartproducts`, cartProduct);
+      let res = await axios.post(`${API_URL}/cartproducts`, cartProduct, {
+        withCredentials: true
+      });
       dispatch(addToCart(res.data));
       dispatch(endRequest({ name: 'ADD_TO_CART' }));
     } catch(e) {
