@@ -1,5 +1,5 @@
 import Button from "../../common/Button/Button";
-import CartForm from "../../features/CartForm/CartForm";
+import CartForm from "../../features/CartProductForm/CartProductForm";
 
 const Cart = props => {
     return(

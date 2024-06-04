@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { IMAGES_URL } from '../../../config';
-import styles from './CartForm.module.scss';
+import styles from './CartProductForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const CartForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
+const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState('cartProduct.size[0]');
   const [comment, setComment] = useState('Max 50 plus podpiąć wartości bazowe pod quantity i size z propsów zamiast hardcodować w useState');
@@ -118,4 +118,4 @@ const CartForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
   );
 };
 
-export default CartForm;
+export default CartProductForm;
