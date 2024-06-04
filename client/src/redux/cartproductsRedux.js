@@ -17,6 +17,7 @@ const ERROR_REQUEST = createActionName('ERROR_REQUEST');
 
 const LOAD_CART_PRODUCTS = createActionName('LOAD_CART_PRODUCTS');
 const ADD_TO_CART = createActionName('ADD_TO_CART');
+const UPDATE_CART_PRODUCT = createActionName('UPDATE_CART_PRODUCT');
 
 export const startRequest = payload => ({ payload, type: START_REQUEST });
 export const endRequest = payload => ({ payload, type: END_REQUEST });
@@ -24,6 +25,7 @@ export const errorRequest = payload => ({ payload, type: ERROR_REQUEST });
 
 export const loadCartProducts = payload => ({ payload, type: LOAD_CART_PRODUCTS });
 export const addToCart = payload => ({ payload, type: ADD_TO_CART });
+export const updateCartProduct = payload => ({ payload, type: UPDATE_CART_PRODUCT });
 
 
 /* THUNKS */
@@ -62,6 +64,21 @@ export const addToCartRequest = (cartProduct) => {
   };
 };
 
+export const updateCartProductRequest = (id, updatedData) => {
+  return async dispatch => {
+    dispatch(startRequest({ name: 'UPDATE_CART_PRODUCT' }));
+    try {
+      let res = await axios.put(`${API_URL}/cartproducts/${id}`, updatedData, {
+        withCredentials: true
+      });
+      dispatch(updateCartProduct(res.data));
+      dispatch(endRequest({ name: 'UPDATE_CART_PRODUCT' }));
+    } catch (e) {
+      dispatch(errorRequest({ name: 'UPDATE_CART_PRODUCT', error: e.message }));
+    }
+  };
+};
+
 /* INITIAL STATE */
 
 const initialState = {
@@ -77,6 +94,8 @@ export default function reducer(statePart = initialState, action = {}) {
       return { ...statePart, data: [...action.payload] };
     case ADD_TO_CART:
       return { ...statePart, data: [...statePart.data, action.payload] };
+    case UPDATE_CART_PRODUCT:
+      return { ...statePart, data: statePart.data.map(cartProduct => cartProduct.id === action.payload.id ? action.payload : cartProduct) };
     case START_REQUEST:
       return { ...statePart, requests: {...statePart.requests, [action.payload.name]: { pending: true, error: null, success: false }} };
     case END_REQUEST:
