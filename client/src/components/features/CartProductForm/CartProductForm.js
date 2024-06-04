@@ -3,12 +3,13 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import { IMAGES_URL } from '../../../config';
 import styles from './CartProductForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 
 const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
   const [quantity, setQuantity] = useState(cartProduct.quantity);
   const [size, setSize] = useState(cartProduct.size);
-  const [comment, setComment] = useState(cartProduct.comment || 'Max 50');
+  const [comment, setComment] = useState(cartProduct.comment || '');
   const [error, setError] = useState('');
 
   const handleQuantityChange = (event) => {
@@ -99,14 +100,18 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
               rows={3} 
               value={comment}
               onChange={handleCommentChange}
+              maxLength={50}
             />
             </Form.Group>
           </Row>
         </Col>
 
-        <Col xs={12} md={2}>
-          <Button variant="link" onClick={() => onRemoveProduct(cartProduct.id)} className={styles.trashButton}>
-              <FontAwesomeIcon icon={faTrash} className={styles.icon} />
+        <Col xs={12} md={2} className={styles.buttonsContainer}>
+          <Button variant="dark"  className={styles.button}>
+            <FontAwesomeIcon icon={faSave} className={clsx(styles.icon, styles.saveIcon)} />
+          </Button>
+          <Button variant="danger" onClick={() => onRemoveProduct(cartProduct.id)} className={clsx(styles.button, styles.trashButton)}>
+              <FontAwesomeIcon icon={faTrash} className={clsx(styles.icon, styles.trashIcon)} />
           </Button>
         </Col>
       </Row>
