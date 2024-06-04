@@ -5,16 +5,22 @@ import styles from './CartProductForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
+import { useDispatch } from 'react-redux';
+import { updateCartProductRequest } from '../../../redux/cartproductsRedux';
 
-const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
+const CartProductForm = ({ cartProduct, removeProduct }) => {
   const [quantity, setQuantity] = useState(cartProduct.quantity);
   const [size, setSize] = useState(cartProduct.size);
   const [comment, setComment] = useState(cartProduct.comment || '');
+
+  const [isUpdated, setIsUpdated] = useState(false);
   const [isFormChanged, setIsFormChanged] = useState(false);
-  const [error, setError] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleQuantityChange = (event) => {
     setIsFormChanged(true);
+    setIsUpdated(false);
     if (event.target.value === cartProduct.quantity) {
       setIsFormChanged(false);
     }
@@ -29,6 +35,7 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
 
   const handleSizeChange = (event) => {
     setIsFormChanged(true);
+    setIsUpdated(false);
     if (event.target.value === cartProduct.quantity) {
       setIsFormChanged(false);
     }
@@ -38,6 +45,7 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
 
   const handleCommentChange = (event) => {
     setIsFormChanged(true);
+    setIsUpdated(false);
     if (event.target.value === '') {
       setIsFormChanged(false);
     }
@@ -45,30 +53,19 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
     setComment(event.target.value);
   };
 
-  const handleUpdate = (event) => {
+  const handleUpdate = async (event) => {
     event.preventDefault();
 
-    setIsFormChanged(false);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (size === '') {
-      setError('Please select a size.');
-    } else {
-      setError('');
-      const cartProduct = {
-        quantity,
-        size,
-        comment,
-      };
-      onSubmit(cartProduct);
+    if(quantity && size) {
+      await dispatch(updateCartProductRequest(cartProduct.id, { quantity: quantity, size: size, comment: comment , productId: cartProduct.product.id}));
+      setIsFormChanged(false);
+      setIsUpdated(true);
     }
   };
 
+  
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <Row className="mb-3">
         
         <div className={styles.cartProductHeader}>
@@ -80,10 +77,6 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
         </Col>
 
         <Col xs={12} md={6}>
-
-          {isFormChanged && (
-            <h5 className={styles.info}>Save your changes before you confirm the order.</h5>
-          )}
           
           <Row>
             <Form.Group as={Col} controlId="size" className="mb-2">
@@ -104,7 +97,6 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
               </>
               )}
             </Form.Control>
-            {error && <div className="text-danger">{error}</div>}
             </Form.Group>
 
             <Form.Group as={Col} controlId="quantity">
@@ -131,15 +123,28 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
             />
             </Form.Group>
           </Row>
+
+          {isFormChanged && (
+            <h5 className={styles.info}>Save your changes before you confirm the order.</h5>
+          )}
+
+          {isUpdated && (
+            <h5 className={clsx(styles.info, styles.success)}>Your changes have been saved.</h5>
+          )}
+
         </Col>
 
         <Col xs={12} md={2} className={styles.buttonsContainer}>
-        {isFormChanged && (
-          <Button variant="dark" onClick={handleUpdate} className={styles.button}>
-            <FontAwesomeIcon icon={faSave} className={clsx(styles.icon, styles.saveIcon)} />
-          </Button>
-        )}
-          <Button variant="danger" onClick={() => onRemoveProduct(cartProduct.id)} className={clsx(styles.button, styles.trashButton)}>
+          {isUpdated && (
+            <FontAwesomeIcon icon={faCheck} className={clsx(styles.icon, styles.checkIcon)} />
+
+            )}
+          {isFormChanged && (
+            <Button variant="dark" onClick={handleUpdate} className={styles.button}>
+              <FontAwesomeIcon icon={faSave} className={clsx(styles.icon, styles.saveIcon)} />
+            </Button>
+          )}
+          <Button variant="danger" onClick={() => removeProduct(cartProduct.id)} className={clsx(styles.button, styles.trashButton)}>
               <FontAwesomeIcon icon={faTrash} className={clsx(styles.icon, styles.trashIcon)} />
           </Button>
         </Col>
