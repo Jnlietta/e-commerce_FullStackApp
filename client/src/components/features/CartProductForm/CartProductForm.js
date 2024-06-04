@@ -10,9 +10,15 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
   const [quantity, setQuantity] = useState(cartProduct.quantity);
   const [size, setSize] = useState(cartProduct.size);
   const [comment, setComment] = useState(cartProduct.comment || '');
+  const [isFormChanged, setIsFormChanged] = useState(false);
   const [error, setError] = useState('');
 
   const handleQuantityChange = (event) => {
+    setIsFormChanged(true);
+    if (event.target.value === cartProduct.quantity) {
+      setIsFormChanged(false);
+    }
+
     const value = parseInt(event.target.value, 10);
     if (!isNaN(value) && Number.isInteger(value) && value > 0) {
       setQuantity(value);
@@ -22,11 +28,27 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
   };
 
   const handleSizeChange = (event) => {
+    setIsFormChanged(true);
+    if (event.target.value === cartProduct.quantity) {
+      setIsFormChanged(false);
+    }
+
     setSize(event.target.value);
   };
 
   const handleCommentChange = (event) => {
+    setIsFormChanged(true);
+    if (event.target.value === '') {
+      setIsFormChanged(false);
+    }
+
     setComment(event.target.value);
+  };
+
+  const handleUpdate = (event) => {
+    event.preventDefault();
+
+    setIsFormChanged(false);
   };
 
   const handleSubmit = (event) => {
@@ -58,6 +80,11 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
         </Col>
 
         <Col xs={12} md={6}>
+
+          {isFormChanged && (
+            <h5 className={styles.info}>Save your changes before you confirm the order.</h5>
+          )}
+          
           <Row>
             <Form.Group as={Col} controlId="size" className="mb-2">
             <Form.Label>Size</Form.Label>
@@ -107,9 +134,11 @@ const CartProductForm = ({ cartProduct, onRemoveProduct, onSubmit }) => {
         </Col>
 
         <Col xs={12} md={2} className={styles.buttonsContainer}>
-          <Button variant="dark"  className={styles.button}>
+        {isFormChanged && (
+          <Button variant="dark" onClick={handleUpdate} className={styles.button}>
             <FontAwesomeIcon icon={faSave} className={clsx(styles.icon, styles.saveIcon)} />
           </Button>
+        )}
           <Button variant="danger" onClick={() => onRemoveProduct(cartProduct.id)} className={clsx(styles.button, styles.trashButton)}>
               <FontAwesomeIcon icon={faTrash} className={clsx(styles.icon, styles.trashIcon)} />
           </Button>

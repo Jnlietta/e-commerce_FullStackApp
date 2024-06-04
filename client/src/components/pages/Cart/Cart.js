@@ -19,7 +19,7 @@ const Cart = props => {
             <CartProducts cartProducts={cartProducts} />
             <Button 
                 path="/order"
-                buttonName="Create order" 
+                buttonName="Confirm order" 
                 style={{ margin: '20px 0'}} 
             />
         </div>    
