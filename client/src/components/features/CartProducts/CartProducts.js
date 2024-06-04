@@ -1,8 +1,13 @@
 import CartProductForm from '../CartProductForm/CartProductForm';
+import styles from './CartProducts.module.scss';
 
 const CartProducts = ({ cartProducts }) => (
   <section>
-    {cartProducts.map(cartProduct => <CartProductForm key={cartProduct._id} {...cartProduct} />)}
+    {cartProducts.map(cartProduct => 
+        <div key={cartProduct.id} className={styles.cartProductFormContainer} >
+            <CartProductForm  cartProduct={cartProduct} />
+        </div>
+    )}
   </section>
 )
 
