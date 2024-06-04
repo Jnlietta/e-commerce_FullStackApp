@@ -114,7 +114,7 @@ export default function reducer(statePart = initialState, action = {}) {
     case UPDATE_CART_PRODUCT:
       return { ...statePart, data: statePart.data.map(cartProduct => cartProduct.id === action.payload.id ? action.payload : cartProduct) };
     case REMOVE_FROM_CART:
-      return { ...statePart, data: statePart.data.filter(cartProduct => cartProduct.id !== action.payload.id) };
+      return { ...statePart, data: statePart.data.filter(cartProduct => cartProduct.id !== action.payload) };
     case START_REQUEST:
       return { ...statePart, requests: {...statePart.requests, [action.payload.name]: { pending: true, error: null, success: false }} };
     case END_REQUEST:

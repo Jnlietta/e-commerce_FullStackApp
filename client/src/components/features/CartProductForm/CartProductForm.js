@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
-import { updateCartProductRequest } from '../../../redux/cartproductsRedux';
+import { loadCartProducts, removeFromCartRequest, updateCartProductRequest } from '../../../redux/cartproductsRedux';
 
-const CartProductForm = ({ cartProduct, removeProduct }) => {
+const CartProductForm = ({ cartProduct }) => {
   const [quantity, setQuantity] = useState(cartProduct.quantity);
   const [size, setSize] = useState(cartProduct.size);
   const [comment, setComment] = useState(cartProduct.comment || '');
@@ -61,6 +61,10 @@ const CartProductForm = ({ cartProduct, removeProduct }) => {
       setIsFormChanged(false);
       setIsUpdated(true);
     }
+  };
+
+  const removeProduct = async (id) => { 
+    await dispatch(removeFromCartRequest(id));
   };
 
   
