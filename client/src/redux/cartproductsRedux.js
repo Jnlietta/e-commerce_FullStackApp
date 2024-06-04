@@ -2,8 +2,8 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* SELECTORS */
-export const getCartProducts = ({ cart }) => cart.data;
-export const getCartRequests = ({ cart }) => cart.requests;
+export const getCartProducts = ({ cartproducts }) => cartproducts.data;
+export const getCartRequests = ({ cartproducts }) => cartproducts.requests;
 
 /* ACTIONS */
 
