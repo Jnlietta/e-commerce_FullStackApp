@@ -18,6 +18,7 @@ const ERROR_REQUEST = createActionName('ERROR_REQUEST');
 const LOAD_CART_PRODUCTS = createActionName('LOAD_CART_PRODUCTS');
 const ADD_TO_CART = createActionName('ADD_TO_CART');
 const UPDATE_CART_PRODUCT = createActionName('UPDATE_CART_PRODUCT');
+const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 
 export const startRequest = payload => ({ payload, type: START_REQUEST });
 export const endRequest = payload => ({ payload, type: END_REQUEST });
@@ -26,6 +27,7 @@ export const errorRequest = payload => ({ payload, type: ERROR_REQUEST });
 export const loadCartProducts = payload => ({ payload, type: LOAD_CART_PRODUCTS });
 export const addToCart = payload => ({ payload, type: ADD_TO_CART });
 export const updateCartProduct = payload => ({ payload, type: UPDATE_CART_PRODUCT });
+export const removeFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 
 
 /* THUNKS */
@@ -79,6 +81,21 @@ export const updateCartProductRequest = (id, updatedData) => {
   };
 };
 
+export const removeFromCartRequest = (id) => {
+  return async dispatch => {
+    dispatch(startRequest({ name: 'REMOVE_FROM_CART' }));
+    try {
+      await axios.delete(`${API_URL}/cartproducts/${id}`, {
+        withCredentials: true
+      });
+      dispatch(removeFromCart(id));
+      dispatch(endRequest({ name: 'REMOVE_FROM_CART' }));
+    } catch (e) {
+      dispatch(errorRequest({ name: 'REMOVE_FROM_CART', error: e.message }));
+    }
+  };
+};
+
 /* INITIAL STATE */
 
 const initialState = {
@@ -96,6 +113,8 @@ export default function reducer(statePart = initialState, action = {}) {
       return { ...statePart, data: [...statePart.data, action.payload] };
     case UPDATE_CART_PRODUCT:
       return { ...statePart, data: statePart.data.map(cartProduct => cartProduct.id === action.payload.id ? action.payload : cartProduct) };
+    case REMOVE_FROM_CART:
+      return { ...statePart, data: statePart.data.filter(cartProduct => cartProduct.id !== action.payload.id) };
     case START_REQUEST:
       return { ...statePart, requests: {...statePart.requests, [action.payload.name]: { pending: true, error: null, success: false }} };
     case END_REQUEST:
