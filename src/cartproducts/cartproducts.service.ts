@@ -79,6 +79,7 @@ export class CartproductsService {
       data: {
         ...otherData,
       },
+      include: { product: true },
     });
   }
 
