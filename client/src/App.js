@@ -8,8 +8,19 @@ import Home from './components/pages/Home/Home';
 import Product from './components/pages/Product/Product';
 import Cart from './components/pages/Cart/Cart';
 import Order from './components/pages/Order/Order';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadCartProductsRequest } from './redux/cartproductsRedux';
+import { loadProductsRequest } from './redux/productsRedux';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadProductsRequest());
+    dispatch(loadCartProductsRequest())
+  }, [dispatch]);
+
   return (
     <div>
       <Header />

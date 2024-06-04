@@ -4,7 +4,7 @@ import Button from '../../common/Button/Button';
 import styles from './ProductForm.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCartRequest } from '../../../redux/cartproductsRedux';
+import { addToCartRequest, loadCartProductsRequest } from '../../../redux/cartproductsRedux';
 
 
 const ProductForm = ({ product }) => {
@@ -28,7 +28,7 @@ const ProductForm = ({ product }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const cartProduct = {
@@ -37,9 +37,9 @@ const ProductForm = ({ product }) => {
       size,
     };
     
-    dispatch(addToCartRequest(cartProduct));
+    await dispatch(addToCartRequest(cartProduct));
+    await dispatch(loadCartProductsRequest());
 
-    console.log('Product added to cart with quantity: ', quantity, ' and size:', size);
     navigate('/cart');
   };
 

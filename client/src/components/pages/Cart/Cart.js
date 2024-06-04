@@ -1,18 +1,10 @@
-import { useEffect } from "react";
-import { getCartProducts, loadCartProductsRequest } from "../../../redux/cartproductsRedux";
+import { getCartProducts} from "../../../redux/cartproductsRedux";
 import Button from "../../common/Button/Button";
 import CartProducts from "../../features/CartProducts/CartProducts";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Cart = props => {
-
-    const dispatch = useDispatch();
-    const cartProducts = useSelector(getCartProducts)
-    // const request = useSelector(getRequest);
-  
-    useEffect(() => {
-      dispatch(loadCartProductsRequest())
-    }, [dispatch]);
+    const cartProducts = useSelector(getCartProducts);
 
     return(
         <div>

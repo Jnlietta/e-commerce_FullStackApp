@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
-import { loadCartProducts, removeFromCartRequest, updateCartProductRequest } from '../../../redux/cartproductsRedux';
+import { removeFromCartRequest, updateCartProductRequest } from '../../../redux/cartproductsRedux';
 
 const CartProductForm = ({ cartProduct }) => {
   const [quantity, setQuantity] = useState(cartProduct.quantity);
@@ -67,8 +67,10 @@ const CartProductForm = ({ cartProduct }) => {
     await dispatch(removeFromCartRequest(id));
   };
 
-  
-  return (
+  if (!cartProduct) {
+    return <div>Loading...</div>; // or any other loading indicator
+  }
+  else return (
     <Form>
       <Row className="mb-3">
         

@@ -13,8 +13,6 @@ const Product = props => {
 
   if (!product) {
     navigate('/'); 
-    // navigate('/product/60bc81de-1d7f-4e7c-8666-216d80a27e2f');
-    return null;
     }
   
   return (
