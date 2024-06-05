@@ -1,0 +1,25 @@
+@import "../../../styles/settings.scss";
+
+.listGroup{
+    max-height: 300px !important;
+}
+
+.cartFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image {
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.productName {
+    font-family: $font-productName !important;
+}
+
+.price {
+    color: $color-warning;
+}
