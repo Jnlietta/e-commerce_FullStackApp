@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Card, Form } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import { createOrderRequest } from '../../../redux/ordersRedux';
-import { getCartProducts } from '../../../redux/cartproductsRedux';
 
-const OrderForm = () => {
+const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
-    const cartProducts = useSelector(getCartProducts);
+    
     let priceOfProducts = 0;
 
     for(let cartProduct of cartProducts) {
