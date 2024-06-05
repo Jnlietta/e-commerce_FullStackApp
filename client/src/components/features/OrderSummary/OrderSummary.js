@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Row, Col, ListGroup } from 'react-bootstrap';
 import { IMAGES_URL } from '../../../config';
 import styles from './OrderSummary.module.scss';
+import clsx from 'clsx';
 
 const OrderSummary = ({ cartProducts }) => {
     
@@ -12,7 +13,7 @@ const OrderSummary = ({ cartProducts }) => {
         <ListGroup variant="flush">
             {cartProducts.map(cartProduct => (
                 <ListGroup.Item key={cartProduct.id} className={styles.listGroup}>
-                    <Row className="mb-3" className={styles.cartFlex}>
+                    <Row className={clsx(styles.cartFlex)}>
                         <Col xs={4}>
                         <img src={IMAGES_URL +cartProduct.product.mainImage} alt={cartProduct.product.name} style={{ width: '100%' }} className={styles.image}/>
                         </Col>

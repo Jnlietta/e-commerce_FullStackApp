@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0 !important;
 }
 
 .image {
@@ -22,4 +22,5 @@
 
 .price {
     color: $color-warning;
+    text-wrap: nowrap;
 }
