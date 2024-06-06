@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Card, Form } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import { createOrderRequest } from '../../../redux/ordersRedux';
+import styles from './OrderForm.module.scss';
 
 const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const OrderForm = ({ cartProducts }) => {
   
     return (
         <Card>
-        <Card.Header>Place Order</Card.Header>
+        <Card.Header className={styles.header}>Place Order</Card.Header>
         <Card.Body>
           <Form>
             <Form.Group controlId="formUserName">
@@ -104,7 +105,7 @@ const OrderForm = ({ cartProducts }) => {
               <h5>Total Summary</h5>
               <p>Subtotal: {priceOnlyProducts.toFixed(2)} $</p>
               <p>Delivery: {deliveryCost.toFixed(2)} $</p>
-              <p><strong>Total (VAT included): {priceTotal.toFixed(2)} $</strong></p>
+              <p className={styles.price}><strong>Total (VAT included): {priceTotal.toFixed(2)} $</strong></p>
             </div>
             <Button onClick={handleSubmit} type="submit" buttonName='Place Order' style={{ width: '100%' }}></Button>
           </Form>

@@ -9,10 +9,10 @@ const Order = props => {
 
     return(
         <Row>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={6} lg={7} xl={8} className="mb-3">
                 <OrderSummary cartProducts={cartProducts}/>
             </Col>
-            <Col md={4}>
+            <Col md={6} lg={5} xl={4}>
                 <OrderForm cartProducts={cartProducts}/>
             </Col>
         </Row>

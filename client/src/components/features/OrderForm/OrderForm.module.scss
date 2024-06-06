@@ -1,0 +1,10 @@
+@import "../../../styles/settings.scss";
+
+.header {
+    font-weight: 600;
+ }
+
+.price {
+    color: $color-warning;
+    text-wrap: nowrap;
+}

@@ -8,7 +8,7 @@ const OrderSummary = ({ cartProducts }) => {
     
   return (
     <Card>
-      <Card.Header>Order Summary</Card.Header>
+      <Card.Header className={styles.header}>Order Summary</Card.Header>
       <Card.Body>
         <ListGroup variant="flush">
             {cartProducts.map(cartProduct => (
@@ -22,7 +22,7 @@ const OrderSummary = ({ cartProducts }) => {
                         <p>Size: {cartProduct.size}</p>
                         <p>Quantity: {cartProduct.quantity}</p>
                         {cartProduct.comment && <p>Comment: {cartProduct.comment}</p>}
-                        <p className={styles.price}><strong>Price: {cartProduct.product.price.toFixed(2)} zł</strong></p>
+                        <p className={styles.price}><strong>Price: {cartProduct.product.price.toFixed(2)} $</strong></p>
                         </Col>
                     </Row>
                 </ListGroup.Item>
