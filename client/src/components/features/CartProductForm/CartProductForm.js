@@ -16,6 +16,8 @@ const CartProductForm = ({ cartProduct }) => {
   const [isUpdated, setIsUpdated] = useState(false);
   const [isFormChanged, setIsFormChanged] = useState(false);
 
+  const productName = cartProduct.product.name;
+
   const dispatch = useDispatch();
 
   const handleQuantityChange = (event) => {
@@ -26,7 +28,7 @@ const CartProductForm = ({ cartProduct }) => {
     }
 
     const value = parseInt(event.target.value, 10);
-    if (!isNaN(value) && Number.isInteger(value) && value > 0) {
+    if (!isNaN(value) && Number.isInteger(value) && value > 0 && value < 10) {
       setQuantity(value);
     } else {
       setQuantity(1);
@@ -68,14 +70,14 @@ const CartProductForm = ({ cartProduct }) => {
   };
 
   if (!cartProduct) {
-    return <div>Loading...</div>; // or any other loading indicator
+    return <div>Loading...</div>;
   }
   else return (
     <Form>
       <Row className="mb-3">
         
         <div className={styles.cartProductHeader}>
-          <h2 className={styles.cartProductName}>{cartProduct.product.name}</h2>
+          <h2 className={styles.cartProductName}>{productName}</h2>
         </div>
 
         <Col xs={12} md={4} className="d-flex justify-content-center mb-3">
@@ -89,10 +91,11 @@ const CartProductForm = ({ cartProduct }) => {
             <Form.Label>Size</Form.Label>
             <Form.Control as="select" value={size} onChange={handleSizeChange} required>
               <option value="" disabled>Select Size</option>
-              {(cartProduct === 'Baseball Cap' || cartProduct === 'Sunglasses') && (
+
+              {(productName === 'Baseball Cap' || productName === 'Sunglasses') && (
               <option value="One Size">One Size</option>
               )}
-              {(cartProduct !== 'Baseball Cap' && cartProduct !== 'Sunglasses') && (
+              {(productName !== 'Baseball Cap' && productName !== 'Sunglasses') && (
               <>
                 <option value="XS">XS</option>
                 <option value="S">S</option>

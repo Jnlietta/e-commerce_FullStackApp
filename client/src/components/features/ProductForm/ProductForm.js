@@ -20,7 +20,7 @@ const ProductForm = ({ product }) => {
 
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10); 
-    if (!isNaN(value) && Number.isInteger(value) && value > 0) {
+    if (!isNaN(value) && Number.isInteger(value) && value > 0 && value < 10) {
       // Check if the parsed value is a valid integer > 0
       setQuantity(value);
     } else {
