@@ -9,7 +9,9 @@ import { addToCartRequest, loadCartProductsRequest } from '../../../redux/cartpr
 
 const ProductForm = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState('XS');
+  const [size, setSize] = useState(
+    product.name === 'Baseball Cap' || product.name === 'Sunglasses' ? 'OneSize' : 'XS'
+  );
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const ProductForm = ({ product }) => {
       quantity,
       size,
     };
-    
+
     await dispatch(addToCartRequest(cartProduct));
     await dispatch(loadCartProductsRequest());
 
@@ -52,7 +54,7 @@ const ProductForm = ({ product }) => {
           <Form.Control as="select" value={size} onChange={handleSizeChange} style={{ width: '100%' }} >
 
             {(product.name === 'Baseball Cap' || product.name === 'Sunglasses') && (
-              <option value="One Size">One Size</option>
+              <option value="OneSize">One Size</option>
             )}
 
             {(product.name !== 'Baseball Cap' && product.name !== 'Sunglasses') && (

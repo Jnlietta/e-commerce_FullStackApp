@@ -93,7 +93,7 @@ const CartProductForm = ({ cartProduct }) => {
               <option value="" disabled>Select Size</option>
 
               {(productName === 'Baseball Cap' || productName === 'Sunglasses') && (
-              <option value="One Size">One Size</option>
+              <option value="OneSize">One Size</option>
               )}
               {(productName !== 'Baseball Cap' && productName !== 'Sunglasses') && (
               <>
