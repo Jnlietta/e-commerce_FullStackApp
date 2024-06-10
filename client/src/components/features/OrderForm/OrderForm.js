@@ -4,9 +4,11 @@ import { Alert, Card, Form } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import { createOrderRequest } from '../../../redux/ordersRedux';
 import styles from './OrderForm.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
   
     const [priceOnlyProducts, setPriceOnlyProducts] = useState(0); 
     const [deliveryCost, setDeliveryCost] = useState(9);
@@ -51,9 +53,9 @@ const OrderForm = ({ cartProducts }) => {
       e.preventDefault();
 
       if (formData.userName && formData.userEmail && formData.userAddress) {
-        console.log('Order form data:', formData);
         await dispatch(createOrderRequest({ ...formData, priceOnlyProducts, priceTotal }));
         setIsError(false);
+        navigate('/thank-you');
       } else {
         setIsError(true);
       }

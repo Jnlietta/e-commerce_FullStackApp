@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadCartProductsRequest } from './redux/cartproductsRedux';
 import { loadProductsRequest } from './redux/productsRedux';
+import ThankYouPage from './components/pages/ThankYouPage/ThankYouPage';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Container>
