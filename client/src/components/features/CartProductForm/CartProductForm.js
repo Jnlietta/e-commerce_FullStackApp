@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import { IMAGES_URL } from '../../../config';
 import styles from './CartProductForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -134,11 +134,11 @@ const CartProductForm = ({ cartProduct }) => {
           </Row>
 
           {isFormChanged && (
-            <h5 className={styles.info}>Save your changes before you confirm the order.</h5>
+            <Alert variant="warning" className={styles.info}>Save your changes before you confirm the order.</Alert>
           )}
 
           {isUpdated && (
-            <h5 className={clsx(styles.info, styles.success)}>Your changes have been saved.</h5>
+            <Alert variant="success" className={styles.info}>Product updated successfully.</Alert>
           )}
 
         </Col>
