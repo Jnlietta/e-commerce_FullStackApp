@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Card, Form } from 'react-bootstrap';
+import { Alert, Card, Form } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
 import { createOrderRequest } from '../../../redux/ordersRedux';
 import styles from './OrderForm.module.scss';
@@ -33,6 +33,8 @@ const OrderForm = ({ cartProducts }) => {
         { value: 'deliversNextDay', label: 'Delivers next-day-shipping 25$', cost: 25 },
     ], []);
 
+    const[isError, setIsError] = useState(false);
+
     useEffect(() => {
         const selectedOption = deliveryOptions.find(option => option.value === formData.delivery);
         if (selectedOption) {
@@ -47,7 +49,14 @@ const OrderForm = ({ cartProducts }) => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      await dispatch(createOrderRequest({ ...formData, priceOnlyProducts, priceTotal }));
+
+      if (formData.userName && formData.userEmail && formData.userAddress) {
+        console.log('Order form data:', formData);
+        await dispatch(createOrderRequest({ ...formData, priceOnlyProducts, priceTotal }));
+        setIsError(false);
+      } else {
+        setIsError(true);
+      }
     };
   
     return (
@@ -55,6 +64,8 @@ const OrderForm = ({ cartProducts }) => {
         <Card.Header className={styles.header}>Place Order</Card.Header>
         <Card.Body>
           <Form>
+          { (isError) && <Alert color="warning">Please complete all required fields before submitting your order.</Alert> }
+
             <Form.Group controlId="formUserName">
               <Form.Label>Name</Form.Label>
               <Form.Control
