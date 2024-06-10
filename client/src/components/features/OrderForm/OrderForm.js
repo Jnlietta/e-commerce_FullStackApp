@@ -7,15 +7,8 @@ import styles from './OrderForm.module.scss';
 
 const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
-    
-    let priceOfProducts = 0;
-
-    for(let cartProduct of cartProducts) {
-        const price = cartProduct.product.price * cartProduct.quantity;
-        priceOfProducts += price;
-    }
-
-    const [priceOnlyProducts] = useState(priceOfProducts); 
+  
+    const [priceOnlyProducts, setPriceOnlyProducts] = useState(0); 
     const [deliveryCost, setDeliveryCost] = useState(9);
     const [priceTotal, setPriceTotal] = useState(priceOnlyProducts + 9); 
   
@@ -36,12 +29,19 @@ const OrderForm = ({ cartProducts }) => {
     const[isError, setIsError] = useState(false);
 
     useEffect(() => {
+        let priceOfProducts = 0;
+        for(let cartProduct of cartProducts) {
+            const price = cartProduct.product.price * cartProduct.quantity;
+            priceOfProducts += price;
+            setPriceOnlyProducts(priceOfProducts);
+        }
+
         const selectedOption = deliveryOptions.find(option => option.value === formData.delivery);
         if (selectedOption) {
             setDeliveryCost(selectedOption.cost);
             setPriceTotal(priceOnlyProducts + selectedOption.cost);
         }
-    }, [formData.delivery, priceOnlyProducts, deliveryOptions]);
+    }, [cartProducts, formData.delivery, priceOnlyProducts, deliveryOptions]);
   
     const handleChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
