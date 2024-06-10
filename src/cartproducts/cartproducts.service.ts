@@ -27,7 +27,7 @@ export class CartproductsService {
     cartProductData: CreateCartProductDto,
     guestId: string,
   ): Promise<CartProduct> {
-    const { productId, ...otherData } = cartProductData;
+    const { productId, quantity, ...otherData } = cartProductData;
 
     // Check if the product exists
     const product = await this.prismaService.product.findUnique({
@@ -46,7 +46,7 @@ export class CartproductsService {
       return this.prismaService.cartProduct.update({
         where: { id: existingCartProduct.id },
         data: {
-          quantity: existingCartProduct.quantity + 1,
+          quantity: existingCartProduct.quantity + quantity,
         },
       });
     }
