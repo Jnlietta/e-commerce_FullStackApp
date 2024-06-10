@@ -5,6 +5,8 @@ import Button from '../../common/Button/Button';
 import { createOrderRequest } from '../../../redux/ordersRedux';
 import styles from './OrderForm.module.scss';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { loadProductsRequest } from '../../../redux/productsRedux';
 
 const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
@@ -55,6 +57,13 @@ const OrderForm = ({ cartProducts }) => {
       if (formData.userName && formData.userEmail && formData.userAddress) {
         await dispatch(createOrderRequest({ ...formData, priceOnlyProducts, priceTotal }));
         setIsError(false);
+
+        // to start new order right after current one
+        Cookies.remove('guestId');
+
+        // to trigger middleware to generate new guestId immediately
+        await dispatch(loadProductsRequest());
+        
         navigate('/thank-you');
       } else {
         setIsError(true);

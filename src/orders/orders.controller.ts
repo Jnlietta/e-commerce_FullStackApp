@@ -8,10 +8,11 @@ import {
   ParseUUIDPipe,
   Post,
   Req,
+  Res,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDTO } from './dtos/create-order.dto';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 @Controller('orders')
 export class OrdersController {
@@ -30,9 +31,19 @@ export class OrdersController {
   }
 
   @Post('/')
-  create(@Body() orderData: CreateOrderDTO, @Req() req: Request) {
+  async create(
+    @Body() orderData: CreateOrderDTO,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
     const guestId = req.cookies['guestId'];
-    return this.ordersService.create(orderData, guestId);
+    const order = await this.ordersService.create(orderData, guestId);
+
+    // Clear the 'guestId' cookie
+    res.clearCookie('guestId');
+
+    // Respond with the created order
+    res.status(201).json(order);
   }
 
   @Delete('/:id')
