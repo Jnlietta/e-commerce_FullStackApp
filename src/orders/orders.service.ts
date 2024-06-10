@@ -38,6 +38,7 @@ export class OrdersService {
         },
         where: {
           guestId: guestId,
+          orderId: null,
         },
       });
 
