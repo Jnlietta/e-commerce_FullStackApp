@@ -10,7 +10,7 @@ function getProducts() {
       shortDescription: 'Comfortable summer t-shirt',
       description:
         'A high-quality cotton t-shirt perfect for summer. Available in various colors and sizes.',
-      category: 'Tops',
+      category: 'Clothes',
       mainImage: 'uploads/tshirt-main.jpg',
     },
     {
@@ -20,7 +20,7 @@ function getProducts() {
       shortDescription: 'Warm and stylish winter jacket',
       description:
         'A stylish and warm jacket for the cold winter months. Made from durable materials and designed for comfort.',
-      category: 'Outerwear',
+      category: 'Clothes',
       mainImage: 'uploads/winterJacket-main.jpg',
     },
     {
@@ -30,7 +30,7 @@ function getProducts() {
       shortDescription: 'Classic blue denim jeans',
       description:
         'Classic blue jeans made from high-quality denim. Perfect for casual wear.',
-      category: 'Bottoms',
+      category: 'Clothes',
       mainImage: 'uploads/denimJeans-main.jpg',
     },
     {
@@ -40,7 +40,7 @@ function getProducts() {
       shortDescription: 'Comfortable and stylish sneakers',
       description:
         'Breathable and lightweight sneakers perfect for casual and athletic wear.',
-      category: 'Footwear',
+      category: 'Clothes',
       mainImage: 'uploads/sneakers-main.jpg',
     },
     {
@@ -50,7 +50,7 @@ function getProducts() {
       shortDescription: 'Premium leather jacket',
       description:
         'High-quality leather jacket with a sleek design. Perfect for a stylish look.',
-      category: 'Outerwear',
+      category: 'Clothes',
       mainImage: 'uploads/leatherJacket-main.jpg',
     },
     {
@@ -70,7 +70,7 @@ function getProducts() {
       shortDescription: 'Comfortable sweatpants',
       description:
         'Soft and cozy sweatpants, perfect for lounging or workouts.',
-      category: 'Bottoms',
+      category: 'Clothes',
       mainImage: 'uploads/sweatpants-main.jpg',
     },
     {
@@ -80,7 +80,7 @@ function getProducts() {
       shortDescription: 'Warm and stylish hoodie',
       description:
         'A stylish hoodie with a soft inner lining, ideal for cool weather.',
-      category: 'Tops',
+      category: 'Clothes',
       mainImage: 'uploads/hoodie-main.jpg',
     },
     {
@@ -99,7 +99,7 @@ function getProducts() {
       shortDescription: 'Lightweight running shorts',
       description:
         'Breathable and comfortable shorts, perfect for running and other workouts.',
-      category: 'Bottoms',
+      category: 'Clothes',
       mainImage: 'uploads/shorts-main.jpg',
     },
   ];
