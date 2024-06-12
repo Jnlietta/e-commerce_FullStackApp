@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Alert, Card, Form } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Alert, Card, Form, Spinner } from 'react-bootstrap';
 import Button from '../../common/Button/Button';
-import { createOrderRequest } from '../../../redux/ordersRedux';
+import { createOrderRequest, getRequests } from '../../../redux/ordersRedux';
 import styles from './OrderForm.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -11,6 +11,7 @@ import { loadProductsRequest } from '../../../redux/productsRedux';
 const OrderForm = ({ cartProducts }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const requests = useSelector(getRequests);
   
     const [priceOnlyProducts, setPriceOnlyProducts] = useState(0); 
     const [deliveryCost, setDeliveryCost] = useState(9);
@@ -129,7 +130,8 @@ const OrderForm = ({ cartProducts }) => {
               <p>Delivery: {deliveryCost.toFixed(2)} $</p>
               <p className={styles.price}><strong>Total (VAT included): {priceTotal.toFixed(2)} $</strong></p>
             </div>
-            <Button onClick={handleSubmit} type="submit" buttonName='Place Order' style={{ width: '100%' }}></Button>
+            <Button onClick={handleSubmit} type="submit" buttonName='Place Order' style={{ width: '100%', marginBottom: '20px' }}></Button>
+            { (requests['CREATE_ORDER'] && requests['CREATE_ORDER'].pending) && <Spinner animation="border" variant="secondary" /> }
           </Form>
         </Card.Body>
       </Card>
