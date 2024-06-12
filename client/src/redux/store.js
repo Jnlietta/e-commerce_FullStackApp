@@ -5,12 +5,14 @@ import thunk from 'redux-thunk';
 import products from './productsRedux';
 import cartproducts from './cartproductsRedux';
 import orders from './ordersRedux';
+import searchString from './searchStringRedux';
 
 // combine reducers
 const rootReducer = combineReducers({
     products,
     cartproducts,
     orders,
+    searchString,
 });
 
 const store = createStore(
