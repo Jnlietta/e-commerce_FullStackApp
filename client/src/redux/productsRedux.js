@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../config';
+import strContains from '../utils/strContains';
 
 /* SELECTORS */
 export const getProducts = ({ products }) => products.data;
@@ -8,6 +9,7 @@ export const getRequests = ({ products }) => products.requests;
 export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
 export const getClothesProducts = ({ products }) => products.data.filter(product => product.category === 'Clothes');
 export const getAccessoriesProducts = ({ products }) => products.data.filter(product => product.category === 'Accessories');
+export const getSearchedProducts = ({products}, searchString ) => products.data.filter(product => strContains(product.name, searchString));
 
 
 /* ACTIONS */

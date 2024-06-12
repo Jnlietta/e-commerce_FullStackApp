@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getProducts } from '../../../redux/productsRedux';
+import { getSearchedProducts } from '../../../redux/productsRedux';
 import Products from '../../features/Products/Products';
 import SearchForm from '../../features/SearchForm/SearchForm';
+import { getSearchString } from '../../../redux/searchStringRedux';
 
 const Home = props => {
-    const products = useSelector(getProducts);
+    const searchString = useSelector(getSearchString);
+    const products = useSelector(state => getSearchedProducts(state, searchString));
 
     return(
       <div>
