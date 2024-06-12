@@ -9,7 +9,9 @@ function getProducts() {
       price: 1999,
       shortDescription: 'Comfortable summer t-shirt',
       description:
-        'A high-quality cotton t-shirt perfect for summer. Available in various colors and sizes.',
+        'A high-quality cotton t-shirt perfect for summer. Available in various colors and sizes. Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/tshirt-main.jpg',
     },
@@ -19,7 +21,9 @@ function getProducts() {
       price: 8999,
       shortDescription: 'Warm and stylish winter jacket',
       description:
-        'A stylish and warm jacket for the cold winter months. Made from durable materials and designed for comfort.',
+        'A stylish and warm jacket for the cold winter months. Made from durable materials and designed for comfort.  Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/winterJacket-main.jpg',
     },
@@ -29,7 +33,9 @@ function getProducts() {
       price: 2999,
       shortDescription: 'Classic blue denim jeans',
       description:
-        'Classic blue jeans made from high-quality denim. Perfect for casual wear.',
+        'Classic blue jeans made from high-quality denim. Perfect for casual wear.  Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/denimJeans-main.jpg',
     },
@@ -39,7 +45,9 @@ function getProducts() {
       price: 4999,
       shortDescription: 'Comfortable and stylish sneakers',
       description:
-        'Breathable and lightweight sneakers perfect for casual and athletic wear.',
+        'Breathable and lightweight sneakers perfect for casual and athletic wear.  Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/sneakers-main.jpg',
     },
@@ -49,7 +57,9 @@ function getProducts() {
       price: 10999,
       shortDescription: 'Premium leather jacket',
       description:
-        'High-quality leather jacket with a sleek design. Perfect for a stylish look.',
+        'High-quality leather jacket with a sleek design. Perfect for a stylish look. Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/leatherJacket-main.jpg',
     },
@@ -59,7 +69,9 @@ function getProducts() {
       price: 999,
       shortDescription: 'Classic baseball cap',
       description:
-        'Adjustable baseball cap with a timeless design. Suitable for all casual occasions.',
+        'Adjustable baseball cap with a timeless design. Suitable for all casual occasions. Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Accessories',
       mainImage: 'uploads/baseballCap-main.jpg',
     },
@@ -69,7 +81,9 @@ function getProducts() {
       price: 2499,
       shortDescription: 'Comfortable sweatpants',
       description:
-        'Soft and cozy sweatpants, perfect for lounging or workouts.',
+        'Soft and cozy sweatpants, perfect for lounging or workouts.  Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/sweatpants-main.jpg',
     },
@@ -79,7 +93,9 @@ function getProducts() {
       price: 3999,
       shortDescription: 'Warm and stylish hoodie',
       description:
-        'A stylish hoodie with a soft inner lining, ideal for cool weather.',
+        'A stylish hoodie with a soft inner lining, ideal for cool weather. Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/hoodie-main.jpg',
     },
@@ -88,7 +104,10 @@ function getProducts() {
       name: 'Sunglasses',
       price: 1499,
       shortDescription: 'Stylish sunglasses',
-      description: 'UV-protection sunglasses with a modern design.',
+      description:
+        'UV-protection sunglasses with a modern design.  Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Accessories',
       mainImage: 'uploads/sunglasses-main.jpg',
     },
@@ -98,7 +117,9 @@ function getProducts() {
       price: 1999,
       shortDescription: 'Lightweight running shorts',
       description:
-        'Breathable and comfortable shorts, perfect for running and other workouts.',
+        'Breathable and comfortable shorts, perfect for running and other workouts. Made from breathable fabric.  Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
+      descriptionSecondPart:
+        'Cras quis tristique nunc. Praesent tincidunt, libero non interdum cursus, felis tellus luctus enim, ut vestibulum est risus vitae arcu. Cras tincidunt fermentum malesuada. Vivamus pharetra euismod maximus. Maecenas mattis egestas porttitor. Sed sed consequat ipsum. Proin congue molestie quam, eget sollicitudin mi mollis non.',
       category: 'Clothes',
       mainImage: 'uploads/shorts-main.jpg',
     },

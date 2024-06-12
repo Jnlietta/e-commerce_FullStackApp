@@ -28,7 +28,8 @@ model Product {
   name String @unique
   price Int
   shortDescription String
-  description String
+  description String @db.Text
+  descriptionSecondPart String @db.Text
   category String
   mainImage String
   gallery   Image[]  @relation("ProductImages")
