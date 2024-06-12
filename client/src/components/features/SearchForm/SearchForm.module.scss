@@ -1,6 +1,11 @@
-@import '../../styles/settings.scss';
 
-.searchForm {
+.form {
     display: flex;
     justify-content: center;
+    margin: 20px auto;
+    width: 60%;
+}
+
+.input {
+    text-align: center;
 }

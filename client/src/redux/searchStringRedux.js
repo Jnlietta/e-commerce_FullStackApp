@@ -14,7 +14,7 @@ export const updateSearchString = payload => ({ type: UPDATE_SEARCHSTRING, paylo
 
 /* INITIAL STATE */
 const initialState = {
-  data: {},
+  data: '',
 };
 
 /* REDUCER */
