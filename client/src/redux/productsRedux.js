@@ -7,7 +7,7 @@ export const getRequests = ({ products }) => products.requests;
 
 export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
 export const getClothesProducts = ({ products }) => products.data.filter(product => product.category === 'Clothes');
-export const getAccessoriesProducts = ({ products }) => products.data.filter(product => product.category === 'Accesorries');
+export const getAccessoriesProducts = ({ products }) => products.data.filter(product => product.category === 'Accessories');
 
 
 /* ACTIONS */
