@@ -17,6 +17,7 @@ const ProductInfo = ({ product }) => {
 
         <div className={styles.productDescription}>
             <p>{product.description}</p>
+            <p>{product.descriptionSecondPart}</p>
         </div>
     </div>
   );
