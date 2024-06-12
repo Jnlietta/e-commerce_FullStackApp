@@ -7,7 +7,7 @@ import { faBars, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import styles from './NavBar.module.scss';
 
-const NavBar = ({ isLoggedIn }) => {
+const NavBar = props => {
     return(
         <Navbar expand="lg" className={clsx('mb-4', styles['navbar-transparent'])}>
             <Container>
@@ -22,7 +22,6 @@ const NavBar = ({ isLoggedIn }) => {
                         <Nav.Link as={NavLink} to="/">Home</Nav.Link>
                         <Nav.Link as={NavLink} to="/clothes">Clothes</Nav.Link>
                         <Nav.Link as={NavLink} to="/accessories">Accessories</Nav.Link>
-                        <Nav.Link as={NavLink} to="/sales">Sales</Nav.Link>
 
                         <Nav.Link as={NavLink} to="/cart" className={styles.cartIcon}>
                             <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />

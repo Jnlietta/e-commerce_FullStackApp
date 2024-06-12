@@ -5,7 +5,6 @@ import Products from '../../features/Products/Products';
 
 const Accessories = props => {
     const products = useSelector(getAccessoriesProducts);
-    console.log(products);
 
     return(
       <div>
