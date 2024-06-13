@@ -11,9 +11,18 @@ import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { CartproductsModule } from './cartproducts/cartproducts.module';
 import { GuestIdMiddleware } from './shared/middlewares/guest-id.middleware';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
-  imports: [ProductsModule, OrdersModule, CartproductsModule],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'client', 'build'),
+    }),
+    ProductsModule,
+    OrdersModule,
+    CartproductsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
