@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadCartProductsRequest } from './redux/cartproductsRedux';
 import { loadProductsRequest } from './redux/productsRedux';
@@ -19,11 +19,26 @@ import Accessories from './components/pages/Accessories/Accessories';
 
 const App = () => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(loadProductsRequest());
-    dispatch(loadCartProductsRequest())
+    const loadData = async () => {
+      await dispatch(loadProductsRequest());
+      await dispatch(loadCartProductsRequest());
+      setLoading(false);
+    };
+    loadData();
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
 
   return (
     <div>
