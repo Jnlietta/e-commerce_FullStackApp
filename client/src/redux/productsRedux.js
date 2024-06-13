@@ -6,13 +6,20 @@ import { getSearchString } from './searchStringRedux';
 
 /* SELECTORS */
 export const getProducts = ({ products }) => products.data;
+export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
 export const getRequests = ({ products }) => products.requests;
 
-export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
-export const getClothesProducts = ({ products }) => products.data.filter(product => product.category === 'Clothes');
-export const getAccessoriesProducts = ({ products }) => products.data.filter(product => product.category === 'Accessories');
-
 // optimalization with reselect library to avoid unnecessary re-renders
+export const getClothesProducts = createSelector(
+  [getProducts],
+  products => products.filter(product => product.category === 'Clothes')
+);
+
+export const getAccessoriesProducts = createSelector(
+  [getProducts],
+  products => products.filter(product => product.category === 'Accessories')
+);
+
 export const getSearchedProducts = createSelector(
   [getProducts, getSearchString],
   (products, searchString) => {
