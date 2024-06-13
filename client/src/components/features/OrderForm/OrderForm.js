@@ -86,6 +86,7 @@ const OrderForm = ({ cartProducts }) => {
                 value={formData.userName}
                 onChange={handleChange}
                 required
+                autoComplete="name" 
               />
             </Form.Group>
             <Form.Group controlId="formUserEmail">
