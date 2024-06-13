@@ -9,13 +9,19 @@ import styles from './TopBar.module.scss';
 import clsx from 'clsx';
 
 import { useDispatch } from 'react-redux';
-import { toggleSearchStringVisibility } from '../../../redux/searchStringRedux';
+import { setSearchStringTrue, toggleSearchStringVisibility } from '../../../redux/searchStringRedux';
+import { useNavigate } from 'react-router-dom';
 
 const TopBar = ({ isLoggedIn }) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleClick = () => {
-        dispatch(toggleSearchStringVisibility())
+        dispatch(toggleSearchStringVisibility());
+        if (window.location.pathname !== '/') {
+            dispatch(setSearchStringTrue());
+            navigate('/');
+        }
     }
 
     return (
