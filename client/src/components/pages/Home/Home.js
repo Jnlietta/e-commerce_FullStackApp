@@ -7,7 +7,7 @@ import { getSearchString } from '../../../redux/searchStringRedux';
 
 const Home = props => {
     const searchString = useSelector(getSearchString);
-    const products = useSelector(state => getSearchedProducts(state, searchString));
+    const products = useSelector(getSearchedProducts);
 
     return(
       <div>
