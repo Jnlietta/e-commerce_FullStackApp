@@ -1,15 +1,21 @@
 @import '../../../styles/settings.scss';
 
+.button-reset {
+    all: unset !important;
+    cursor: pointer !important;
+}
+
 .links {
     text-align: right !important;
     align-items: end !important;
     padding: .5rem 0 !important;
     padding-left: 1rem !important;
     font-size: 13px !important;
-    text-decoration: none;
+    text-decoration: none !important;
     color: $color-text !important;
 }
 
 .linksLogout {
     color: $color-warning !important;
 }
+

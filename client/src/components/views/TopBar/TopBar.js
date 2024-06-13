@@ -1,32 +1,28 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-
+import { Button, Container, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+//import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+//import { NavLink } from 'react-router-dom';
 
 import styles from './TopBar.module.scss';
-import { Button, Container, Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSearchStringVisibility, toggleSearchStringVisibility } from '../../../redux/searchStringRedux';
+
+import { useDispatch } from 'react-redux';
+import { toggleSearchStringVisibility } from '../../../redux/searchStringRedux';
 
 const TopBar = ({ isLoggedIn }) => {
     const dispatch = useDispatch();
-    const isVisible = useSelector(getSearchStringVisibility);
 
     const handleClick = () => {
-        console.log('Search clicked');
-
         dispatch(toggleSearchStringVisibility())
     }
-
-    console.log('isVisible', isVisible);
 
     return (
         <Container>
             <Nav className={'justify-content-end'}>
-                
+
+            {/* This code will be used in the future  
                 {!isLoggedIn && 
                     <Nav.Link as={NavLink} to="/user/login" className={styles.links}>
                         <FontAwesomeIcon className={styles.icon} icon={faUser} /> Login
@@ -42,8 +38,9 @@ const TopBar = ({ isLoggedIn }) => {
                         <FontAwesomeIcon className={styles.icon} icon={faUser} /> Logout
                     </Nav.Link>
                 }
+            */}
 
-                <Button variant="transparent" onClick={handleClick} className={styles.links}>
+                <Button variant="link" onClick={handleClick} className={clsx(styles['links'], styles['button-reset'])}>
                     <FontAwesomeIcon className={styles.icon} icon={faSearch} /> Search
                 </Button>
             </Nav> 
