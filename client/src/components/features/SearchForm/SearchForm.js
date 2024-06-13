@@ -1,11 +1,10 @@
+import React from 'react';
 import { Form } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSearchString, updateSearchString } from '../../../redux/searchStringRedux';
+import { useDispatch } from 'react-redux';
+import { updateSearchString } from '../../../redux/searchStringRedux';
 import styles from './SearchForm.module.scss';
 
-const SearchForm = () => {
-    const searchString = useSelector(getSearchString);
-    console.log(searchString);
+const SearchForm = ({ searchString }) => {
     const dispatch = useDispatch();
 
     const handleChange = e => {
@@ -25,4 +24,4 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+export default React.memo(SearchForm);

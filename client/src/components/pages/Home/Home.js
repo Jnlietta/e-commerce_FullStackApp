@@ -11,7 +11,7 @@ const Home = props => {
 
     return(
       <div>
-        <SearchForm />
+        <SearchForm searchString={searchString} />
         <Products products={products} />
       </div>
     );
