@@ -8,6 +8,7 @@ const Clothes = props => {
 
     return(
       <div>
+        <h1>Only clothes:</h1>
         <Products products={products} />
       </div>
     );

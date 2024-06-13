@@ -19,16 +19,20 @@ const Cart = props => {
 
     return(
         <div>
+            <h1>Your cart summary:</h1>
             <CartProducts cartProducts={cartProducts} />
-            <Button 
-                path="/order"
-                buttonName="Confirm order" 
-                style={{ margin: '20px 20px 20px 0'}} 
-            />
-            <Button
-                path="/"
-                buttonName="Continue shopping"
-            />
+            <div style={{ textAlign: 'center', margin: '30px'}}>
+                <Button 
+                    path="/order"
+                    buttonName="Confirm order" 
+                    style={{ margin: '10px'}} 
+                />
+                <Button
+                    path="/"
+                    buttonName="Continue shopping"
+                    style={{ margin: '10px'}} 
+                />
+            </div>
         </div>    
     );
 };

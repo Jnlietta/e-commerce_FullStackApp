@@ -8,6 +8,7 @@ const Accessories = props => {
 
     return(
       <div>
+        <h1>Only accessories:</h1>
         <Products products={products} />
       </div>
     );
