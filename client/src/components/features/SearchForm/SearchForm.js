@@ -16,6 +16,7 @@ const SearchForm = ({ searchString }) => {
         <Form className={visible ? styles.form : styles.hidden}>
             <Form.Control
                 type="text"
+                name="searchString"
                 value={searchString}
                 onChange={handleChange}
                 placeholder="Search for products..."
