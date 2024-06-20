@@ -5,8 +5,7 @@ This full-stack e-commerce website was created as final project of bootcamp cour
 
 ## Demo 
 
-[Look at demo website here: ](https://e-commerce-fullstackapp-spgz.onrender.com)
-
+[Click here to see the demo website :)](https://e-commerce-fullstackapp-spgz.onrender.com)
 
 ## Description
 
